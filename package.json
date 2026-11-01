@@ -10,7 +10,8 @@
     "typecheck": "next typegen && tsc --noEmit",
     "test": "node --import tsx --test tests/*.test.ts",
     "test:e2e": "playwright test",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "photos:optimize": "node scripts/optimize-photos.mjs"
   },
   "dependencies": {
     "@fontsource-variable/dm-sans": "^5.2.8",
@@ -37,6 +38,7 @@
     "eslint": "^9.39.4",
     "eslint-config-next": "16.4.3",
     "prettier": "^3.9.10",
+    "sharp": "^0.35.5",
     "tsx": "^4.21.0",
     "typescript": "^5.9.3"
   }

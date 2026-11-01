@@ -49,4 +49,4 @@ Flavors: **Sweet Vanilla**, **Divine Chocolate**, **Elegant Red Velvet**.
 
 ## Editing
 
-The single source of truth is `menu` in `src/lib/site.ts`. The three photo-card price ranges are derived from those flavor prices. The cake panel reads its layer prices and fruit add-on from the same configuration. The phone is configured as `site.phone`. Dessert photographs remain labeled concepts and are not verified images of the listed flavors.
+The single source of truth is `menu` in `src/lib/site.ts`. The three photo-card price ranges are derived from those flavor prices. The cake panel reads its layer prices and fruit add-on from the same configuration. The phone is configured as `site.phone`. Dessert photographs now show authentic Rah Bakes creations. They illustrate categories and past designs; exact flavors, fillings, and custom topping prices cannot be inferred from photographs. The decorated celebration cake is not labeled or priced as the Bare Cake.

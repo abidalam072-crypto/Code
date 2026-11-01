@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, useState } from "react";
-import Image from "next/image";
+import { BakeryImage } from "@/components/bakery-image";
 import * as Dialog from "@radix-ui/react-dialog";
 import {
   ArrowLeft,
@@ -11,7 +11,12 @@ import {
   Sparkle,
   X,
 } from "lucide-react";
-import { categories, gallery, site, type GalleryPhoto } from "@/lib/site";
+import {
+  galleryCategories,
+  gallery,
+  site,
+  type GalleryPhoto,
+} from "@/lib/site";
 import { cn } from "@/lib/utils";
 
 export function Gallery({ preview = false }: { preview?: boolean }) {
@@ -37,7 +42,7 @@ export function Gallery({ preview = false }: { preview?: boolean }) {
           role="group"
           aria-label="Filter gallery by category"
         >
-          {categories.map((item) => (
+          {galleryCategories.map((item) => (
             <button
               key={item.id}
               className={cn("filter-chip", category === item.id && "selected")}
@@ -62,11 +67,10 @@ export function Gallery({ preview = false }: { preview?: boolean }) {
               trigger.current = event.currentTarget;
               setActive(index);
             }}
-            aria-label={`Enlarge ${photo.title} — concept photograph`}
+            aria-label={`Enlarge ${photo.title}`}
           >
-            <Image
-              src={photo.image}
-              alt={photo.alt}
+            <BakeryImage
+              photo={photo.photo}
               fill
               sizes="(max-width: 600px) 90vw, (max-width: 900px) 45vw, 31vw"
               style={{ objectPosition: photo.position }}
@@ -125,9 +129,8 @@ export function Gallery({ preview = false }: { preview?: boolean }) {
             {selected && (
               <>
                 <div className="lightbox-image">
-                  <Image
-                    src={selected.image}
-                    alt={selected.alt}
+                  <BakeryImage
+                    photo={selected.photo}
                     fill
                     sizes="(max-width: 700px) 95vw, 75vw"
                     className="image-contain"
@@ -138,7 +141,9 @@ export function Gallery({ preview = false }: { preview?: boolean }) {
                   <div>
                     <Dialog.Title>{selected.title}</Dialog.Title>
                     <Dialog.Description>
-                      Concept photography · Not a Rah Bakes product photo
+                      {selected.category === "celebrations"
+                        ? "A past Rah Bakes celebration display. Ask about current options; this is not the priced Bare Cake menu."
+                        : "An original Rah Bakes creation. Ask about current designs and availability."}
                     </Dialog.Description>
                   </div>
                   <div className="lightbox-controls">
@@ -168,9 +173,9 @@ export function Gallery({ preview = false }: { preview?: boolean }) {
       </Dialog.Root>
       {!preview && (
         <p className="results-count" role="status">
-          {photos.length} concept{" "}
-          {photos.length === 1 ? "photograph" : "photographs"}. See real
-          creations on{" "}
+          {photos.length} Rah Bakes{" "}
+          {photos.length === 1 ? "photograph" : "photographs"}. Follow the
+          latest on{" "}
           <a
             className="inline-link"
             href={site.instagram}

@@ -1,44 +1,23 @@
-# Brand research and content provenance
+# Brand research and provenance
 
-## What was available
+The user confirms **Rah Bakes**, a boutique bakery in **Sterling Heights, Michigan**, with Instagram at **https://www.instagram.com/rahbakes/**. The user-supplied menu confirms cupcakes, brownies, cookies, Bare Cake, prices, quantities, and the public telephone number. The menu transcription is in [MENU.md](MENU.md).
 
-The brief identifies the business as **Rah Bakes**, a boutique bakery based in **Sterling Heights, Michigan**, with Instagram at **https://www.instagram.com/rahbakes/**. The brief specifically requests cupcakes, brownies, and cookies as the product categories. These are used as the site’s starting collection, with availability and specific products to be confirmed by the owner.
+## Identity and actual photography
 
-## Instagram access
+The user supplied the circular Rahbakes mark: an illustrated baker with medium-brown skin, dark hair, a lavender blouse, a purple cupcake, script lettering, and fine double rings. The previously approved website refinement, including the corrected hand, remains in use. This is an illustration, not a founder photograph.
 
-A previous direct HTTPS request was blocked by the cloud network proxy. In the updated environment, the public profile now returns **200 OK** with the title **Baker in Michigan (@rahbakes)** and profile metadata. The public photo-data request returns **401**, with `require_login: true`; product photographs, captions, prices, policies, and the full biography could not be retrieved.
+The user then added **24 authentic JPEG photographs** to `public/images` in commit `6e69faa`. All 24 were inspected before the redesign. The packaging labels and purple ribbons in **5.jpg** independently show the same illustrated brand identity. The lavender/ivory floral cupcake work in 1/16 provides the primary art direction; chocolate and golden cookies keep the collection varied.
 
-No attempt was made to bypass login requirements or disable TLS verification. A browser certificate-store update was rejected by automatic approval review because it would expand persistent browser trust. Existing verified HTTP access was used for the public metadata checks. No Instagram product photos have been downloaded or embedded.
+The enhanced website pairs warm ivory, soft lavender, deep plum, and cocoa with local Cormorant Garamond and DM Sans. A layered photographic hero, understated editorial numbering, refined cards, a cocoa-colored values section, image-led brand story, and a varied masonry gallery give the existing site a consistent identity across desktop and mobile.
 
-## Design decisions
+See [PHOTO-AUDIT.md](PHOTO-AUDIT.md) for **every photograph's assessment, all placements, exact edits, six held-out photographs, and reproducible processing instructions**. Numbered source files are untouched; 18 cropped WebP exports and a social-image JPEG are saved separately. No generated dessert photograph remains in use. The three old generated dessert assets have been removed after checking references.
 
-The user supplied the existing circular Rahbakes illustration: a faceless baker with medium-brown skin and dark hair, a lavender blouse, a cupcake with purple buttercream, script lettering, and a fine double ring. The website uses a refined version of that illustration, including a corrected, natural five-digit hand. This is an illustrated brand mark, not a verified photograph of the founder. Its lavender accents now guide the site's highlights, soft backgrounds, favicon, and social preview, with ivory and cocoa retained for warmth and contrast.
+## Instagram and asset permissions
 
-Cormorant Garamond display type, DM Sans body copy, thin editorial rules, an asymmetric curved hero, and restrained Motion reveals complete the visual treatment. The supplied illustration is the source for the current identity; product availability, policies, founder identity, biography, and the draft brand story still require confirmation.
+The earlier public profile metadata request succeeded, but photo-data requests required login. Those access checks are not a source for menu facts, ordering policies, or current offerings. The site uses the authentic photos explicitly supplied by the user for this website; no new scraping, login bypass, or unauthorized Instagram image downloading was needed.
 
-## Images
+Photos are named by visible subjects. A pink/fruit cupcake is not automatically identified as Strawberry Bliss or Red Velvet; exact flavors and fillings are not visually inferred. The celebration display is explicitly past work, not the Bare Cake price panel or a new priced dessert-cup offering. The menu remains unchanged.
 
-| File                              | Source                                                                       | Status                                                      |
-| --------------------------------- | ---------------------------------------------------------------------------- | ----------------------------------------------------------- |
-| `public/images/cupcakes.webp`     | Original AI-generated editorial cupcake concept                              | Replace with authorized Rah Bakes photography before launch |
-| `public/images/brownies.webp`     | Original AI-generated editorial brownie concept                              | Replace with authorized Rah Bakes photography before launch |
-| `public/images/cookies.webp`      | Original AI-generated editorial cookie concept                               | Replace with authorized Rah Bakes photography before launch |
-| `public/images/rahbakes-logo.png` | User-supplied logo, refined with image generation and corrected hand anatomy | Current website logo; transparent PNG                       |
+## Information that still needs confirmation
 
-Images are stored locally, not fetched from Instagram or third-party image services. Some gallery entries reuse images with different crops. Concept labels appear in the hero, catalog, gallery, Instagram section, alt text, and footer. No generated photo is described as real bakery work.
-
-## User-supplied menu
-
-The user supplied a screenshot of the bakery's menu and explicitly requested that its prices be used. The menu confirms five cupcake flavors ($3–$4 each), four brownie options ($3–$4 each), two cookie options ($2–$2.50 each), treat quantities of 4/6/12/24, and Bare Cake with three flavors and layer-based prices of $20/$30/$35 for 2/3/4 layers. Fruits are an $8 add-on. It also supplies the contact number +1 (586) 224-4623. These facts are now in the central configuration; the complete transcription is in `docs/MENU.md`.
-
-## Unconfirmed details
-
-- Exact tone, founder, biography, business story, and any brand guidance beyond the supplied logo.
-- Fillings, final finishes, portion dimensions, current availability, and any information beyond the supplied menu.
-- Whether custom orders, celebration designs, or mixed boxes are offered.
-- Current ordering channel. Instagram is offered as a profile/contact fallback, not described as a verified booking system.
-- Lead times, deposits, cancellation/refund terms, pickup address, hours, delivery areas, and fees.
-- Ingredients, cross-contact practices, allergen information, dietary accommodations, licenses, and certifications.
-- Public email address, legal business contact, and privacy/inbox retention practices.
-
-The central configuration at `src/lib/site.ts` leaves unknown facts unset or explicitly marks them for owner confirmation. All displayed prices come from the user-supplied menu. No review, award, dietary assurance, founder identity, founding date, or service guarantee has been invented.
+Founder identity and biography, the draft brand story, specific custom services, lead times, pickup/delivery, allergens/cross-contact, payment/deposit/cancellation terms, public email, and production domain remain owner-editable/unconfirmed. There are no invented reviews, awards, prices, shop hours, founder history, or allergen-free claims. Inquiry delivery remains an honest Instagram helper until all email credentials are configured. Preview indexing remains disabled until content approval and launch configuration.

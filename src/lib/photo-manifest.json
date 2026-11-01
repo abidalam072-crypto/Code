@@ -1,0 +1,200 @@
+{
+  "lavender-garden": {
+    "source": "/images/1.jpg",
+    "sourceSha256": "c16ce6efdbf60af87a4afad3f763348b0e6c05fce62938bfd79fc06d88b9e351",
+    "image": "/images/optimized/lavender-garden.webp",
+    "title": "The lavender garden",
+    "alt": "Rah Bakes cupcakes piped with lavender and ivory flowers, green leaves, and pearl details",
+    "width": 1370,
+    "height": 1740,
+    "bytes": 265938,
+    "blurDataURL": "data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAACQAQCdASoMAA8AA8BgJQBWACP+4uQA+P3Rwpr0/zkoYbDYL/BekNZ8oJo6DwWUiGDmH7nB1mEe5Rbh1ltTdZZezromjjNdjZ8YOKQrF00MUKh6AAA="
+  },
+  "blush-blooms": {
+    "source": "/images/2.jpg",
+    "sourceSha256": "a9ee210c21adb1679e6b93d8afac27e593c850ad39934dc89879e9f8e3413e05",
+    "image": "/images/optimized/blush-blooms.webp",
+    "title": "Blush in bloom",
+    "alt": "Boxes of Rah Bakes cupcakes decorated with blush pink and ivory buttercream flowers",
+    "width": 1370,
+    "height": 1760,
+    "bytes": 293576,
+    "blurDataURL": "data:image/webp;base64,UklGRmwAAABXRUJQVlA4IGAAAAAwAgCdASoMAA8AA8BgJagCdAYt88Bb8HPkAAD9/Mi+hLotXjH42K6GS7I0Dv6ZUTsSz+16vl+Dh5DiQVTaqXd1SMMFW7Xmj4pbxzmiRQePcDnw180/OZgIgHQOYw8AAAA="
+  },
+  "violet-butterflies": {
+    "source": "/images/3.jpg",
+    "sourceSha256": "87990b5180885a513280a54886cc9ffb319ca102c77e92445a4646950f18c56c",
+    "image": "/images/optimized/violet-butterflies.webp",
+    "title": "Violet & gold",
+    "alt": "Deep violet Rah Bakes cupcakes with gold butterfly decorations and gold sprinkles",
+    "width": 1360,
+    "height": 1760,
+    "bytes": 191354,
+    "blurDataURL": "data:image/webp;base64,UklGRmoAAABXRUJQVlA4IF4AAAAwAgCdASoMABAAA8BgJYwCsAYtVNJDbOTuAAD+W+Tt7yXSMVzoMtAFs9lR3XdL1I1sRKnMQhSWIYQr+MH7LoDLJE4ilcgwiI6FGmnhP2IKrXzqR3qPvD3PAKAPAAAA"
+  },
+  "sunshine-butterflies": {
+    "source": "/images/4.jpg",
+    "sourceSha256": "ac7d27f7cc735e32b114a3c2edb1a42ffddaa84328981c3ef29d2850cd81d0a7",
+    "image": "/images/optimized/sunshine-butterflies.webp",
+    "title": "A little sunshine",
+    "alt": "Yellow and ivory Rah Bakes cupcakes with piped swirls, pearls, and a gold butterfly",
+    "width": 1400,
+    "height": 1058,
+    "bytes": 127460,
+    "blurDataURL": "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAAAwAgCdASoMAAkAA8BgJbACdAECpu6OlefdiADhJh181g0hekTQ+GvBdXPp0rtp5x48SUzPc05hT8QPZ9fzc4ynEf9YGVwXKcZM9MQAAAA="
+  },
+  "wrapped-with-rah": {
+    "source": "/images/5.jpg",
+    "sourceSha256": "4c6cc7101eefe633a46f489b3400c5ac5dd74a35877708398a6999ef167e1c8c",
+    "image": "/images/optimized/wrapped-with-rah.webp",
+    "title": "Wrapped with Rah",
+    "alt": "Yellow and lavender floral cupcakes beside Rahbakes illustrated packaging labels and purple ribbons",
+    "width": 1380,
+    "height": 1790,
+    "bytes": 249752,
+    "blurDataURL": "data:image/webp;base64,UklGRngAAABXRUJQVlA4IGwAAADwAQCdASoMABAAA8BgJbACdAYxE4kx/igA/e+Gtv6kC4lUK7roH0PKp6rbeXIsmQuDFCdkWHEEDnpAQJ6A51awZ7SOZPtL+3bbUgWOknQ99gS+YB7Icfe8osBDug11FplXzw6p9HDwE0LPAAA="
+  },
+  "chocolate-brownies": {
+    "source": "/images/6.jpg",
+    "sourceSha256": "872b6f327bd40ce71cf5bb5906f8d2746f01b7b23e8858765236a70a4eee01c9",
+    "image": "/images/optimized/chocolate-brownies.webp",
+    "title": "The chocolate edit",
+    "alt": "Rah Bakes chocolate-drizzled brownies topped with chocolate bars and assorted chocolates",
+    "width": 1390,
+    "height": 1760,
+    "bytes": 248238,
+    "blurDataURL": "data:image/webp;base64,UklGRnQAAABXRUJQVlA4IGgAAAAQAgCdASoMAA8AA8BgJZACdAC3lQCwFjvgAP7gq56nb68gSeWU6U151I7+xk9AGh186f+ZlCHvQS0qxBG/FBjgfz6TLU0P5GUlK4lgeBCUjxmKbb7kLu32XisgxWW04PBf4h1eB2gAAA=="
+  },
+  "rose-petal-brownies": {
+    "source": "/images/8.jpg",
+    "sourceSha256": "a35f88f4b41b33fd8be1592d7120e3a4998a08ab236553632556284b3b065541",
+    "image": "/images/optimized/rose-petal-brownies.webp",
+    "title": "Chocolate & rose petals",
+    "alt": "Close-up of chocolate-drizzled Rah Bakes brownies decorated with pink rose petals",
+    "width": 1400,
+    "height": 1699,
+    "bytes": 293254,
+    "blurDataURL": "data:image/webp;base64,UklGRmgAAABXRUJQVlA4IFwAAADQAQCdASoMAA8AA8BgJbACdACGtmYToAD+oS48MsZHwiAohh8KM7jStBlDWA9zkzIkGl9Za8sOg8rHi/LjANSdqNcFOiWP43KfK9St6XepXqUA9HfmN4Mg29gAAA=="
+  },
+  "blue-and-ivory": {
+    "source": "/images/9.jpg",
+    "sourceSha256": "8156ce42ef42ff229db08b3bc51d6e6c0c7ac914eb7778317d95e4bb489808ab",
+    "image": "/images/optimized/blue-and-ivory.webp",
+    "title": "Something blue",
+    "alt": "A box of Rah Bakes cupcakes with pale blue and ivory piped buttercream and gold details",
+    "width": 1360,
+    "height": 1760,
+    "bytes": 188198,
+    "blurDataURL": "data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAACwAQCdASoMABAAA8BgJYwAAlqWlLrgAPyPdQnY5aLf2M8u0XCBMZpaJBjAvRVR7aQc7fZRmj9dy3EcEqasV1rF6TPopB7abOmI30CzTrwTV4AB7J+kgAAA"
+  },
+  "chocolate-cupcakes": {
+    "source": "/images/10.jpg",
+    "sourceSha256": "88905a3aef7eba293e8fdbb4d47c37105126f709529b3381ca7159cd41097aee",
+    "image": "/images/optimized/chocolate-cupcakes.webp",
+    "title": "Chocolate, beautifully",
+    "alt": "Rah Bakes chocolate cupcakes with chocolate frosting, drizzle, and chocolate curls",
+    "width": 1370,
+    "height": 1740,
+    "bytes": 223486,
+    "blurDataURL": "data:image/webp;base64,UklGRnAAAABXRUJQVlA4IGQAAADwAQCdASoMAA8AA8BgJaACdAYtfkMrLgAA/ktItZIk5TwKfuAvVQQp1NCG532mu82eFofoahZeT7YzDDlA67ZRbSOrv/rn48s51W4DK4WRFTVVqr0TA/RBGG6M7K4JJoLZdIAA"
+  },
+  "flower-box": {
+    "source": "/images/12.jpg",
+    "sourceSha256": "a22626bf6a70c0879e77c56e5f4c5c0e8d180f506879f6e802d1b468dbfb9902",
+    "image": "/images/optimized/flower-box.webp",
+    "title": "An edible bouquet",
+    "alt": "A box of Rah Bakes cupcakes piped as colorful coral, orange, pink, yellow, and ivory flowers",
+    "width": 1400,
+    "height": 806,
+    "bytes": 108900,
+    "blurDataURL": "data:image/webp;base64,UklGRmgAAABXRUJQVlA4IFwAAADQAQCdASoMAAcAA8BgJbACdAC1F9AVgAD+YPWiu0/NNvulPZ3aLK2toD2aiFt8aDkoPuiVhSnU2ytmeTwtFiBvjXlARBwaQuxm7doI08kR6KXxGvD/8zrhamgAAA=="
+  },
+  "berry-and-ivory": {
+    "source": "/images/13.jpg",
+    "sourceSha256": "f2e935e72b5e31d86b6f1ee0a906099b0cfb51005d795af8af1a59dc42d48752",
+    "image": "/images/optimized/berry-and-ivory.webp",
+    "title": "Berries on top",
+    "alt": "Rah Bakes cupcakes with ivory frosting, strawberry halves, and blackberries",
+    "width": 1400,
+    "height": 848,
+    "bytes": 88894,
+    "blurDataURL": "data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAAAQAgCdASoMAAcAA8BgJZgCdAfwIuoZtwSEAP7EVKClIDB9ZzM8HHaXGdOCnZdIGYJw3828Pib2p55FLe54CPK94ZRT8iYwmk20/QTTgiRcAA=="
+  },
+  "celebration-table": {
+    "source": "/images/14.jpg",
+    "sourceSha256": "38a3cc4e882f1b1b780f4f81db316150efa7bb72d30dff9bdd711addd5d41368",
+    "image": "/images/optimized/celebration-table.webp",
+    "title": "A table to remember",
+    "alt": "A Rah Bakes celebration display with a white floral cake, cupcakes, and layered dessert cups",
+    "width": 1260,
+    "height": 1220,
+    "bytes": 96466,
+    "blurDataURL": "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAABQAgCdASoMAAwAA8BgJZgCdAYtVuJoeV844AAA/u/JAx+lWmBWbkgWMrXLk9gFXwVyRUu54fI8klzFZzU3N2YaDWZ27howmLfuO4AA"
+  },
+  "buttercream-palette": {
+    "source": "/images/16.jpg",
+    "sourceSha256": "f745481d335e327732675bf0eaf988498396a44673967b140863d203bb0dc75e",
+    "image": "/images/optimized/buttercream-palette.webp",
+    "title": "The buttercream palette",
+    "alt": "Rah Bakes floral cupcakes in dusty pink, muted blue, lavender, and ivory buttercream",
+    "width": 1370,
+    "height": 1760,
+    "bytes": 169378,
+    "blurDataURL": "data:image/webp;base64,UklGRngAAABXRUJQVlA4IGwAAAAQAgCdASoMAA8AA8BgJbACdAYwS9JOPSgAAP5fS5yCgdOgmQiA6BkCArY/jF82SlwNdiqr5eX9lnz2+ipZX4PVkRp3Ei9qJPCh7ERKjNER7YrX9KSHsy4MeL8zLpeR51pW9KetQP2KD1zWoAA="
+  },
+  "strawberry-raspberry": {
+    "source": "/images/18.jpg",
+    "sourceSha256": "0171c68d819f844cf4c15e98b81ae00a7c13f9c21c62eaec8a63519dd2519c1f",
+    "image": "/images/optimized/strawberry-raspberry.webp",
+    "title": "Berry lovely",
+    "alt": "A box of Rah Bakes cupcakes topped with ivory swirls, strawberries, and raspberries",
+    "width": 1370,
+    "height": 1750,
+    "bytes": 196128,
+    "blurDataURL": "data:image/webp;base64,UklGRnwAAABXRUJQVlA4IHAAAAAwAgCdASoMAA8AA8BgJbACdLoAEJWZeAyQ0AD+yX6CUfJ0mwUKeJwGaWyKfwONCtPcY1j9/Zc6kYKUtIbCqGWmNc41MbzdWriQghn5pVmy7sgewC9rL2hw1h6LnmewsBegAvBO2/QvueMbP6r3+AAA"
+  },
+  "jewel-toned-cupcakes": {
+    "source": "/images/19.jpg",
+    "sourceSha256": "d8e74133c7bdc686e0212b76b3757752c4afe81b068989cfb8a943a871d531ba",
+    "image": "/images/optimized/jewel-toned-cupcakes.webp",
+    "title": "A bolder kind of sweet",
+    "alt": "Rah Bakes cupcakes with deep blue, red, and ivory piped flowers and pearl sprinkles",
+    "width": 1365,
+    "height": 1750,
+    "bytes": 216178,
+    "blurDataURL": "data:image/webp;base64,UklGRn4AAABXRUJQVlA4IHIAAABQAgCdASoMAA8AA8BgJbACsAYu52tnUL6Y9AAA/cAQTb80Wz3ae53aEIBpYN7fNf2SOy3e6PvOCedXDet0IHXnjQvBBtvh1b7n6CJMbzoPpL+1SDCWt2DvvbS9bJwlJ0NYAMeecBsgP0MVBO2RChx94AA="
+  },
+  "chocolate-gathering": {
+    "source": "/images/20.jpg",
+    "sourceSha256": "969e6cffc8bb2eb76b3d1f6db7dc306075b2b940a754025ee09c1a3c5705e5c9",
+    "image": "/images/optimized/chocolate-gathering.webp",
+    "title": "Better together",
+    "alt": "An assortment of Rah Bakes chocolate-frosted cupcakes and chocolate-drizzled brownies in kraft boxes",
+    "width": 1360,
+    "height": 1740,
+    "bytes": 318136,
+    "blurDataURL": "data:image/webp;base64,UklGRmwAAABXRUJQVlA4IGAAAABwAgCdASoMAA8AA8BgJbACdLoAEJeYpt5C1FLAAOIgb2vkbAPcHE+b1z5Ni+ZFmBjJFwGaFFbR2nzULgnrHuDiQNP91V7zI3UmIB0+mL3t8Uxjov6E2PYqvieLt0EAAAA="
+  },
+  "brownie-box": {
+    "source": "/images/21.jpg",
+    "sourceSha256": "c7db62702f139c38e06aab92eca6cba88a3af1071d09f388caeac93977207286",
+    "image": "/images/optimized/brownie-box.webp",
+    "title": "A box of chocolate joy",
+    "alt": "A box of four Rah Bakes brownies with chocolate drizzle and assorted chocolate toppings",
+    "width": 1360,
+    "height": 1710,
+    "bytes": 192904,
+    "blurDataURL": "data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAABQAgCdASoMAA8AA8BgJQBOgMXI7W2DYNiEFcAA/k5wyjsglMGIXEqzp9Do9Q6v6qunIv4WfD6rzxidbhNfIhqu1nsM3hSOa/3I8qqVeo9ux4SCsFFIAAAA"
+  },
+  "cooling-rack-cookies": {
+    "source": "/images/24.jpg",
+    "sourceSha256": "abd929e3e47a951df732c74c261beffabd9e474b9cc45b84ca8ecc6fe36cf4a6",
+    "image": "/images/optimized/cooling-rack-cookies.webp",
+    "title": "Golden little moments",
+    "alt": "Rah Bakes chocolate chip cookies with chocolate squares cooling on a gold wire rack",
+    "width": 1000,
+    "height": 1620,
+    "bytes": 264372,
+    "blurDataURL": "data:image/webp;base64,UklGRpIAAABXRUJQVlA4IIYAAAAwBACdASoMABMAPwFqrE8rJiQiMAgBYCAJZACdAYvC3COH0N5FGNS/2rAAyv6/rZVPDiw1Pzvin8cF5pIXXJ9qlHkSou+DkYjCm7VRv+F9aGEWR3rgtDyxA4b+/To9otnZ8uBQ4Yc7/4a1O9gfSj8yXTNJm827esYWjrcJfOE7FPFDkXjQAA=="
+  }
+}

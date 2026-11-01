@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
+import { BakeryImage } from "@/components/bakery-image";
 import { ArrowUpRight, Sparkle, CakeSlice } from "lucide-react";
 import { catalogCategories, menu, products, type Product } from "@/lib/site";
 import { inquiryHref, cn, formatMoney } from "@/lib/utils";
@@ -30,9 +30,8 @@ export function ProductCard({
           className="product-photo"
           aria-label={`${number} — Inquire about ${product.name.toLowerCase()}`}
         >
-          <Image
-            src={product.image}
-            alt={product.alt}
+          <BakeryImage
+            photo={product.photo}
             fill
             sizes="(max-width: 650px) 90vw, (max-width: 1000px) 46vw, 30vw"
             className="image-cover"
@@ -52,6 +51,10 @@ export function ProductCard({
           <p>{product.description}</p>
           {detailed && (
             <div className="product-menu">
+              <p className="menu-photo-caption">
+                Past {product.name.toLowerCase()} by Rah Bakes. Pictured designs
+                and toppings are confirmed separately from flavor prices.
+              </p>
               <p className="menu-unit">From the menu · per treat</p>
               <ul>
                 {menu[product.id].map((item) => (

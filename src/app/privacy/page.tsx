@@ -59,7 +59,7 @@ export default function PrivacyPage() {
         <h2>Cookies, analytics, and external links</h2>
         <p>
           This starter does not include advertising, analytics trackers,
-          embedded Instagram feeds, or marketing cookies. Fonts and concept
+          embedded Instagram feeds, or marketing cookies. Fonts and bakery
           photographs are hosted with the website. Instagram opens only when you
           follow an external link.
         </p>

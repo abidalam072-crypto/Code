@@ -29,8 +29,8 @@ export default function TreatsPage() {
         <div className="catalog-note">
           <span>THE RAH BAKES MENU</span>
           <p>
-            Menu prices are in USD. Dessert photos are illustrative; please
-            confirm availability directly.
+            Prices in USD · Real Rah Bakes creations. Confirm your design, date,
+            and final quote directly.
           </p>
         </div>
         <h2 className="sr-only">Explore the Rah Bakes menu and prices</h2>

@@ -1,62 +1,45 @@
-# Validation
+# Validation — authentic photography redesign
 
-Validated in the supplied Linux cloud environment with Node 24.19.0, Next.js 16.4.3, React 19.3.1, and Chromium 154.
+Validated **2026-11-01** in the supplied cloud environment with Node 24.19.0, Next.js 16.4.3, React 19.3.1, and Chromium. These results apply to the authentic-photo redesign, not the earlier concept version.
 
-## Logo and menu update
-
-The corrected illustrated logo, lavender styling, supplied menu prices, telephone link, and Bare Cake inquiry path were validated with lint, type-check, the production build, 11 API tests, and 21 desktop/mobile browser checks; all passed. The catalog browser test includes filtering Bare Cake and carrying that selection into the inquiry form. The API test accepts the new type and confirms its readable inquiry message.
-
-The user also supplied `Archive.zip` with dessert photographs, but the attachment exceeds the 32 MiB executor transfer limit and could not be downloaded. Photo replacement is pending smaller uploads. The existing dessert pictures remain explicitly labeled illustrative concepts.
-
-| Check                           | Result                                                   |
-| ------------------------------- | -------------------------------------------------------- |
-| `npm ci --no-audit --no-fund`   | Clean lockfile installation passed                       |
-| `npm run lint`                  | Passed without warnings                                  |
-| `npm run typecheck`             | Passed                                                   |
-| `npm test`                      | 11 inquiry validation/API tests passed; none skipped     |
-| `npm run build`                 | Production build and static generation passed            |
-| `npm run test:e2e`              | 21 browser tests passed; none skipped                    |
-| Prettier / Git whitespace check | Passed                                                   |
-| Production dependency audit     | 0 known vulnerabilities reported                         |
-| Tablet widths 768 / 1024        | Six principal pages rendered without horizontal overflow |
+| Check                          | Result                                                                                                                                           |
+| ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `npm run lint`                 | Passed, no lint warnings/errors                                                                                                                  |
+| `npm run typecheck`            | Passed, including Next.js route generation                                                                                                       |
+| `npm test`                     | **11** inquiry validation/API tests passed; none skipped                                                                                         |
+| `npm run build`                | Production compilation, TypeScript, and generation of all 13 route entries passed                                                                |
+| `npm run test:e2e`             | **23** desktop/mobile/email-interface browser tests passed; none skipped                                                                         |
+| Responsive layout smoke checks | Six main pages at **320, 390, 768, 1024, and 1440px**: 30 checks, no horizontal overflow                                                         |
+| Original-file preservation     | Git comparison against upload commit `6e69faa`: all **24 numbered JPEGs unchanged**                                                              |
+| Image provenance and paths     | All 18 selected-source SHA-256 checksums match; 18 unique derivatives exist; three generated dessert assets removed after reference checks       |
+| Photo HTTP responses           | All 18 WebP paths return 200; representative hero, brownie, and cookie images successfully pass through Next.js AVIF/WebP optimization           |
+| Menu preservation              | Deep comparison of the entire `menu` object against `6e69faa` passed: items, prices, quantities, cake flavors/layers, and fruit add-on unchanged |
+| Social preview                 | Production social-image route returns 200 and uses the authentic hero photograph and current logo/colors                                         |
+| Formatting/whitespace          | Changed source/docs formatted with Prettier; `git diff --check` passed                                                                           |
 
 ## Browser coverage
 
-- Desktop and emulated iPhone layouts, loaded hero photography, screenshots, and overflow checks.
-- Product filtering and selected-dessert handoff to the inquiry form.
-- Gallery filters, full-screen lightbox, arrow keys, Escape, and focus restoration.
-- Inline form validation, error focus, message preparation, and truthful Instagram fallback.
-- Mocked email success, provider rejection, and connection failure; no real messages sent.
-- Mobile menu open/close/navigation and persistent ordering action.
-- Automated WCAG 2/2.1 A and AA checks on all eight main pages, gallery dialog, mobile menu, and prepared inquiry state.
-- Reduced-motion behavior, no-JavaScript contact fallback, routes, 404, social image, and preview robots policy.
+- Actual hero image decodes, meaningful CTA destinations, no client page errors, and full-page desktop/mobile screenshots.
+- Menu category filtering, Brownie/Bare Cake inquiry prefilling, and correct quantity label for cakes.
+- Authentic gallery category filtering, cookie image matching, full-screen lightbox, arrow-key navigation, Escape, and restored focus.
+- Inline inquiry validation, error focus, prepared message, manual Instagram handoff, and no false submission claim.
+- Mocked email success, provider rejection, and connection failure; no real email sent.
+- Mobile navigation open/close, destination selection, and persistent ordering action.
+- Automated WCAG 2/2.1 A/AA checks on all eight main pages, the gallery dialog, mobile navigation, and prepared inquiry state.
+- Reduced-motion behavior, no-JavaScript contact fallback, all internal routes, 404 response, social image, and preview robots policy.
 
-Automated accessibility checks supplement human testing; they are not an accessibility certification. Tablet checks are layout smoke checks, not a full real-device test suite.
+The initial browser attempt found a still-running server from the previous website version. It was stopped; Playwright now refuses to reuse occupied ports, preventing silent testing against old assets. A subsequent accessibility check found a hero inset link whose explicit accessible name did not include its visible caption. The unnecessary override was removed. The **final production run passed all 23 tests against fresh servers**, including unmodified accessibility scans on every page.
 
-## What is not yet verified
+## Visual/photo review
 
-- Real bakery photography, story, flavors, prices, contact information, service availability, and ordering policies need owner approval.
-- Instagram's public profile metadata is now accessible; its photo endpoint returns 401 with a login requirement. A persistent browser certificate-store change was rejected by automatic approval review because it would broaden browser trust. No Instagram dessert photos have been downloaded.
-- Resend domain verification, actual credentials, recipient inbox, and real delivery are not verified. The default Instagram helper works without email credentials.
-- Public DNS, HTTPS hosting, deployed Core Web Vitals, and real-device behavior need validation after deployment.
-- Preview indexing remains disabled until the owner completes the launch checklist and enables `SITE_LAUNCH_READY`.
-- Cloud configuration publication and restoration in a new task are separate product actions; current-instance checks do not establish those outcomes.
+All 24 originals were inspected before editing; the 18 selected exports were reviewed again after cropping. Small profile overlays in landscape photos 12/13 were identified in the second pass and cropped out. Desktop/mobile home layouts and menu/gallery presentations were reviewed using browser screenshots. The complete selection, crop recipes, actual corrections, and six held-out photographs are documented in [PHOTO-AUDIT.md](PHOTO-AUDIT.md).
 
-## Initial-version local mobile performance audit
+The 18 selected JPEG sources total 10.87 MB; their WebP exports total 3.73 MB, about 66% smaller. Next.js additionally selects responsive sizes and modern formats. No upscaling or generated detail was used. No new Lighthouse score or deployed Core Web Vitals result is claimed.
 
-Lighthouse 13.6.0, default simulated mobile throttling, against the earlier production build with preloaded local fonts and AVIF image delivery. These measurements predate the logo/menu update and are historical reference values; the current deployment needs its own performance measurement:
+## Limits and owner review
 
-| Category       | Score |
-| -------------- | ----- |
-| Performance    | 90    |
-| Accessibility  | 100   |
-| Best practices | 100   |
-
-- First contentful paint: 0.8 s
-- Largest contentful paint: 3.4 s
-- Cumulative layout shift: 0
-- Total blocking time: 140 ms
-
-The optimized 750px hero photo transfers 37,295 bytes as AVIF, compared with 66,046 bytes for the earlier WebP response. All three dessert photos returned successful AVIF image responses. Development startup was also verified with functional requests to the home, treats, and inquiry pages.
-
-This is a local lab sample, not a field Core Web Vitals result or a deployed performance guarantee. Earlier production-build samples ranged from 88–94 for performance, showing run-to-run variability. Measure the deployed site with final assets and real traffic; an LCP above 2.5 seconds needs follow-up on the actual hosting/CDN. SEO was deliberately excluded from scoring because this preview has noindex enabled.
+- Automated browser/accessibility checks supplement real-device and human review; they are not an accessibility certification.
+- Real email credentials, domain verification, inbox delivery, public DNS/HTTPS hosting, and deployed performance are not validated here. The default Instagram message-preparation workflow remains functional and explicit about what has not been sent.
+- The heart-shaped products in 11/23 need identification before catalog use; 22 would benefit from a brighter original. The warm original lighting in 20 is intentionally retained. Celebration photos do not establish a new priced bundle or the Bare Cake decoration included at its menu price.
+- Current custom services, flavors pictured, lead times, pickup/delivery, allergen handling, deposits/cancellations, founder biography, draft story, public email, and final domain still need owner confirmation. See [OWNER-CHECKLIST.md](OWNER-CHECKLIST.md).
+- Preview indexing remains disabled until the owner finishes the launch checklist and explicitly enables `SITE_LAUNCH_READY`.

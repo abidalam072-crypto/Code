@@ -1,3 +1,5 @@
+import { photography, photographs, type Photograph } from "./photography";
+
 /** Owner-editable source of truth. See docs/OWNER-CHECKLIST.md before launch. */
 export const site = {
   name: "Rah Bakes",
@@ -10,12 +12,12 @@ export const site = {
   launchReady: process.env.SITE_LAUNCH_READY === "true",
   logo: "/images/rahbakes-logo.png" as string | null,
   colors: {
-    cream: "#faf7f2",
-    paper: "#f3edf5",
-    cocoa: "#38251f",
-    muted: "#6f5c52",
-    blush: "#eee3f4",
-    rose: "#705080",
+    cream: "#fbf8f3",
+    paper: "#f0eaf3",
+    cocoa: "#33271f",
+    muted: "#695c56",
+    blush: "#e8ddef",
+    rose: "#695078",
     caramel: "#aa8559",
   },
   // Phone and menu prices were supplied by the user in the bakery's menu.
@@ -27,7 +29,7 @@ export const site = {
     heading: "Good things come in sweet little moments.",
     paragraphs: [
       "A birthday wish. A thank-you. A Tuesday that could use a little chocolate. There’s something lovely about a treat that makes an ordinary moment feel special.",
-      "Meet Rah Bakes, a boutique bakery in Sterling Heights, Michigan. This is a first look at a world of cupcakes, brownies, and cookies — and an invitation to start a sweet conversation.",
+      "Meet Rah Bakes, a boutique bakery in Sterling Heights, Michigan. From delicate buttercream flowers to chocolate-drizzled brownies and golden cookies, there’s a little world of sweetness to explore.",
     ],
     ownerNote:
       "Our full story is coming soon. Meet the person behind Rah Bakes and discover the latest from the kitchen on Instagram.",
@@ -96,6 +98,7 @@ export type Product = {
   description: string;
   image: string;
   alt: string;
+  photo: Photograph;
   price: number | null;
   priceMax?: number;
   verified: boolean;
@@ -108,8 +111,9 @@ export const products: Product[] = [
     note: "A little swirl of happiness",
     description:
       "From Classic Vanilla to Strawberry Bliss, a little swirl of sweetness for your kind of occasion.",
-    image: "/images/cupcakes.webp",
-    alt: "Illustrative pink buttercream cupcakes with raspberries on a cream ceramic stand",
+    image: photography.cupcakes.image,
+    alt: photography.cupcakes.alt,
+    photo: photography.cupcakes,
     price: Math.min(...menu.cupcakes.map((item) => item.price)),
     priceMax: Math.max(...menu.cupcakes.map((item) => item.price)),
     verified: true,
@@ -120,8 +124,9 @@ export const products: Product[] = [
     note: "For the love of chocolate",
     description:
       "Classic, chocolate-drizzled, topped with chocolates, or customized. Find your kind of chocolate moment.",
-    image: "/images/brownies.webp",
-    alt: "Illustrative stack of chocolate brownies with glossy tops on parchment",
+    image: photography.brownies.image,
+    alt: photography.brownies.alt,
+    photo: photography.brownies,
     price: Math.min(...menu.brownies.map((item) => item.price)),
     priceMax: Math.max(...menu.brownies.map((item) => item.price)),
     verified: true,
@@ -132,8 +137,9 @@ export const products: Product[] = [
     note: "Your everyday kind of lovely",
     description:
       "Brown Butter Choco Chip or Hershey’s Choco Chip. A little pick-me-up that needs no special occasion.",
-    image: "/images/cookies.webp",
-    alt: "Illustrative golden chocolate chunk cookies on warm ivory linen",
+    image: photography.cookies.image,
+    alt: photography.cookies.alt,
+    photo: photography.cookies,
     price: Math.min(...menu.cookies.map((item) => item.price)),
     priceMax: Math.max(...menu.cookies.map((item) => item.price)),
     verified: true,
@@ -142,66 +148,57 @@ export const products: Product[] = [
 
 export type GalleryPhoto = {
   id: string;
-  category: Category;
+  category: Category | "celebrations";
   image: string;
   alt: string;
+  photo: Photograph;
   title: string;
   aspect: "portrait" | "square" | "landscape";
   position?: string;
 };
 
+export const galleryCategories = [
+  ...categories,
+  { id: "celebrations", label: "Celebrations" },
+];
+
+function galleryPhoto(
+  id: keyof typeof photographs,
+  category: GalleryPhoto["category"],
+  aspect: GalleryPhoto["aspect"] = "portrait",
+): GalleryPhoto {
+  const photo = photographs[id];
+  return {
+    id,
+    category,
+    aspect,
+    image: photo.image,
+    alt: photo.alt,
+    title: photo.title,
+    photo,
+  };
+}
+
+/** Every entry is a distinct owner-supplied photograph, never a duplicate crop. */
 export const gallery: GalleryPhoto[] = [
-  {
-    id: "pink-moments",
-    category: "cupcakes",
-    image: "/images/cupcakes.webp",
-    alt: products[0].alt,
-    title: "A little blush",
-    aspect: "portrait",
-  },
-  {
-    id: "chocolate-moments",
-    category: "brownies",
-    image: "/images/brownies.webp",
-    alt: products[1].alt,
-    title: "The chocolate edit",
-    aspect: "square",
-  },
-  {
-    id: "cookie-moments",
-    category: "cookies",
-    image: "/images/cookies.webp",
-    alt: products[2].alt,
-    title: "Golden little moments",
-    aspect: "portrait",
-  },
-  {
-    id: "cookie-closeup",
-    category: "cookies",
-    image: "/images/cookies.webp",
-    alt: "Illustrative close-up of chocolate chunks and golden cookie edges",
-    title: "A closer look",
-    aspect: "square",
-    position: "50% 70%",
-  },
-  {
-    id: "cupcake-closeup",
-    category: "cupcakes",
-    image: "/images/cupcakes.webp",
-    alt: "Illustrative close-up of pink buttercream piping",
-    title: "The sweetest details",
-    aspect: "portrait",
-    position: "50% 35%",
-  },
-  {
-    id: "brownie-closeup",
-    category: "brownies",
-    image: "/images/brownies.webp",
-    alt: "Illustrative detail of a chocolate brownie’s fudgy center",
-    title: "Just one more bite",
-    aspect: "square",
-    position: "50% 65%",
-  },
+  galleryPhoto("flower-box", "cupcakes", "landscape"),
+  galleryPhoto("rose-petal-brownies", "brownies", "portrait"),
+  galleryPhoto("violet-butterflies", "cupcakes", "portrait"),
+  galleryPhoto("cooling-rack-cookies", "cookies", "portrait"),
+  galleryPhoto("lavender-garden", "cupcakes", "portrait"),
+  galleryPhoto("chocolate-cupcakes", "cupcakes", "square"),
+  galleryPhoto("blue-and-ivory", "cupcakes", "portrait"),
+  galleryPhoto("chocolate-brownies", "brownies", "square"),
+  galleryPhoto("strawberry-raspberry", "cupcakes", "portrait"),
+  galleryPhoto("wrapped-with-rah", "cupcakes", "portrait"),
+  galleryPhoto("jewel-toned-cupcakes", "cupcakes", "square"),
+  galleryPhoto("buttercream-palette", "cupcakes", "portrait"),
+  galleryPhoto("brownie-box", "brownies", "square"),
+  galleryPhoto("sunshine-butterflies", "cupcakes", "landscape"),
+  galleryPhoto("berry-and-ivory", "cupcakes", "landscape"),
+  galleryPhoto("blush-blooms", "cupcakes", "portrait"),
+  galleryPhoto("chocolate-gathering", "celebrations", "portrait"),
+  galleryPhoto("celebration-table", "celebrations", "square"),
 ];
 
 export const policies = [
@@ -244,4 +241,4 @@ export const policies = [
 ];
 
 export const photographyNote =
-  "Illustrative concept photography, created for this website preview. These are not photos of Rah Bakes products. Prices follow the Rah Bakes menu; final designs and availability are confirmed directly.";
+  "Real Rah Bakes creations. A look at past work; designs, availability, and your final quote are confirmed directly.";

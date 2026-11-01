@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Instagram, Sparkle } from "lucide-react";
 import { InquiryForm } from "@/components/inquiry-form";
+import { BakeryImage } from "@/components/bakery-image";
+import { photography } from "@/lib/photography";
 import { Eyebrow, PageIntro } from "@/components/ui";
 import { FAQList } from "@/components/sections";
 import { bakeryToday } from "@/lib/inquiry";
@@ -37,6 +39,17 @@ export default async function OrdersPage({
       />
       <section className="container order-layout">
         <aside className="order-aside">
+          <div className="inquiry-photo">
+            <BakeryImage
+              photo={photography.inquiry}
+              fill
+              sizes="(max-width: 900px) 90vw, 30vw"
+              className="image-cover"
+            />
+            <span className="photo-label">
+              A little inspiration from Rah Bakes
+            </span>
+          </div>
           <div className="order-aside-card">
             <Sparkle size={32} strokeWidth={1.1} aria-hidden="true" />
             <Eyebrow>A little note before we begin</Eyebrow>

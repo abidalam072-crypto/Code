@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import { BakeryImage } from "@/components/bakery-image";
 import { Heart } from "lucide-react";
-import { site, products } from "@/lib/site";
+import { site } from "@/lib/site";
+import { photography } from "@/lib/photography";
 import { ButtonLink, Eyebrow, PageIntro } from "@/components/ui";
 import { InstagramSection, SweetCTA, WhyRah } from "@/components/sections";
 
@@ -28,15 +30,16 @@ export default function AboutPage() {
       />
       <section className="container story-section">
         <div className="story-photo">
-          <Image
-            src={products[0].image}
-            alt="Concept photograph of soft pink cupcakes in warm afternoon light"
+          <BakeryImage
+            photo={photography.story}
             fill
             preload
             sizes="(max-width: 800px) 90vw, 45vw"
             className="image-cover"
           />
-          <span className="photo-label">Concept photography</span>
+          <span className="photo-label">
+            Our little world, wrapped with Rah
+          </span>
         </div>
         <div className="story-copy">
           <Eyebrow>{site.story.eyebrow}</Eyebrow>

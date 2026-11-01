@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
-import Image from "next/image";
+import { BakeryImage } from "@/components/bakery-image";
 import { ArrowUpRight, Instagram, Mail, MapPin, Phone } from "lucide-react";
-import { site, products } from "@/lib/site";
+import { site } from "@/lib/site";
+import { photography } from "@/lib/photography";
 import { ButtonLink, Eyebrow, PageIntro } from "@/components/ui";
 import { FAQPreview } from "@/components/sections";
 
@@ -87,15 +88,14 @@ export default function ContactPage() {
           </div>
         </div>
         <div className="contact-photo">
-          <Image
-            src={products[2].image}
-            alt="Concept photograph of chocolate chunk cookies on a cream linen table"
+          <BakeryImage
+            photo={photography.contact}
             fill
             preload
             sizes="(max-width: 800px) 90vw, 45vw"
             className="image-cover"
           />
-          <span className="photo-label">Concept photography</span>
+          <span className="photo-label">Berries on top · Rah Bakes</span>
         </div>
       </section>
       <FAQPreview />

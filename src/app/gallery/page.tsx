@@ -7,7 +7,7 @@ import { photographyNote } from "@/lib/site";
 export const metadata: Metadata = {
   title: "The Sweet Gallery",
   description:
-    "A visual mood board of cupcakes, brownies, and cookies. Find inspiration for your next sweet moment with Rah Bakes.",
+    "Explore 18 original photographs of Rah Bakes cupcakes, brownies, cookies, and celebration displays. Take a closer look at the sweet details.",
   alternates: { canonical: "/gallery" },
 };
 

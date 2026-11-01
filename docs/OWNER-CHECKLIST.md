@@ -5,11 +5,12 @@
 - [ ] Approve the proposed wordmark, typography, palette, voice, and overall design, or provide the existing brand assets.
 - [x] Supply the original illustrated logo; refined transparent PNG and corrected hand are now included.
 - [ ] Review the refined logo and lavender website treatment on desktop and mobile.
-- [ ] Supply distinct, high-resolution photos of actual cupcakes, brownies, and cookies and confirm permission to publish them.
-- [ ] Replace all three generated concept photos and gallery crops. Update alt text accurately.
+- [x] Supply authentic photographs: 24 originals are now in the repository. Eighteen distinct images have been curated for the site.
+- [x] Replace all generated dessert photos with authentic images, accurate alt text, and separately optimized derivatives.
 - [ ] Approve a founder name, portrait, biography, story, and any personal introduction that should be public.
 - [ ] Replace or approve the draft story; remove its draft label only after approval.
-- [ ] Remove concept/preview photography labels only after replacing all affected assets with approved real work.
+- [x] Replace concept labels with authentic-work captions after replacing all dessert images.
+- [ ] Review all final crops and placements in PHOTO-AUDIT.md. Identify the heart-shaped treats in 11/23, confirm exact photo flavors if desired, and supply a Bare Cake photo before attaching one to that price panel.
 
 ## Products and ordering
 

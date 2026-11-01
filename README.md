@@ -1,6 +1,6 @@
 # Rah Bakes
 
-A complete, responsive boutique bakery website built with **Next.js App Router, TypeScript, Tailwind CSS 4, Motion, Lucide, and Radix Dialog**. Ivory, cocoa, and lavender, locally hosted editorial typography, the user-supplied illustrated logo refined for the website, and concept dessert photography give the site its visual identity.
+A complete, responsive boutique bakery website built with **Next.js App Router, TypeScript, Tailwind CSS 4, Motion, Lucide, and Radix Dialog**. Ivory, cocoa, and lavender, locally hosted editorial typography, the user-supplied illustrated logo refined for the website, and 18 curated authentic Rah Bakes photographs give the site its visual identity. All 24 uploaded originals were reviewed and remain untouched. See [`docs/PHOTO-AUDIT.md`](docs/PHOTO-AUDIT.md) for photo-by-photo assessment, edits, placements, and held-out images.
 
 ## Local development
 
@@ -27,9 +27,9 @@ npm run test:e2e
 
 `npm test` runs the inquiry validation and API integration tests. Every email request in these tests is mocked; no messages are sent. Browser tests cover desktop and mobile layouts, filtering, inquiry preparation, lightbox navigation/focus, mobile navigation, routing, reduced motion, and automated accessibility checks.
 
-The browser suite uses `/usr/bin/chromium` if available, or a Playwright-installed Chromium. On another machine, run `npx playwright install --with-deps chromium` first. Override the browser path with `PLAYWRIGHT_CHROMIUM_EXECUTABLE` or an existing test server with `PLAYWRIGHT_BASE_URL`. `test:e2e` runs the production server automatically if one is not running. Do not run it against a live customer inbox: its default server environment explicitly disables email delivery.
+The browser suite uses `/usr/bin/chromium` if available, or a Playwright-installed Chromium. On another machine, run `npx playwright install --with-deps chromium` first. Override the browser path with `PLAYWRIGHT_CHROMIUM_EXECUTABLE` or an existing test server with `PLAYWRIGHT_BASE_URL`. `test:e2e` starts fresh production servers on ports 3000 and 3001; stop other servers using those ports first. Do not run it against a live customer inbox: its default server environment explicitly disables email delivery.
 
-Stop a development server you started on port 3000 before running the production browser suite. The suite can reuse an existing server on that port, so ensure it serves the intended production build. Email UI checks use a separate local server with fake test settings and intercepted API requests; no email is sent. See [`docs/VALIDATION.md`](docs/VALIDATION.md) for the completed checks and their limits.
+Stop any development or production server using ports 3000/3001 before running the browser suite. The suite deliberately refuses to reuse an older server so it cannot silently test stale assets. Email UI checks use a separate local server with fake test settings and intercepted API requests; no email is sent. See [`docs/VALIDATION.md`](docs/VALIDATION.md) for the completed checks and their limits.
 
 ## Pages
 
@@ -53,11 +53,11 @@ Stop a development server you started on port 3000 before running the production
 - Change `site.colors` to update the theme: the layout exposes these values as CSS variables.
 - The refined user-supplied logo lives at `public/images/rahbakes-logo.png`, configured through `site.logo`. Its cupcake-holding hand has been corrected. The full seal is used in the header, mobile menu, footer, About page, touch icon, and social preview; responsive companion lettering keeps the name legible at small sizes. You can replace that asset or change `site.logo` to another local image path.
 - Replace images in `public/images/` and edit their paths and honest alt text in the product/gallery data.
-- The user-supplied menu is transcribed in `menu` in `src/lib/site.ts`; see [`docs/MENU.md`](docs/MENU.md). Cupcake, brownie, and cookie prices are per item, with quantities of 4, 6, 12, or 24. Category price ranges are derived from these values. The Bare Cake panel lists three flavors, 2/3/4-layer prices, and an $8 fruit add-on. Update the centralized menu to change prices or flavors; photos remain illustrative.
+- The user-supplied menu is transcribed in `menu` in `src/lib/site.ts`; see [`docs/MENU.md`](docs/MENU.md). Cupcake, brownie, and cookie prices are per item, with quantities of 4, 6, 12, or 24. Category price ranges are derived from these values. The Bare Cake panel lists three flavors, 2/3/4-layer prices, and an $8 fruit add-on. Update the centralized menu to change prices or flavors; photographs show actual past work, with exact flavors/designs subject to confirmation.
 - `categories` covers the three photographed treat categories. `catalogCategories` also includes Bare Cake, which has a price panel without an invented product photo. The inquiry schema and form accept `bare-cake`; when adding another type, update the schema, form, and catalog together.
 - Replace the draft story and owner note, and confirm the remaining policies. The phone on the supplied menu is now shown on Contact and in the footer. Lead times, pickup, delivery, deposits, cancellation terms, and the founder's identity remain unconfirmed.
-- Gallery entries deliberately reuse three concept photos in different crops. Replace the collection with distinct authorized images of actual bakery products before launch.
-- Remove or revise concept-photo captions, the preview collection label, draft story notice, and global photography note **only after** the corresponding content has been replaced and approved.
+- All 18 gallery entries use distinct authentic photos. Update `src/lib/photography.ts` for page placements and the gallery in `src/lib/site.ts` for order/categories. See the photo audit before using the six unselected originals.
+- Photos are now authentic. The founder story and unconfirmed policies still require owner approval; retain their visible status until confirmed.
 
 ## Inquiry modes
 
@@ -92,7 +92,7 @@ The included throttle is **per server instance**, not a shared distributed limit
 2. Add the environment variables described above. Email variables are optional while using the Instagram fallback.
 3. Set `NEXT_PUBLIC_SITE_URL` to the final canonical HTTPS origin, without a trailing slash. Public variables are included at build time, so redeploy after changing them.
 4. Keep `SITE_LAUNCH_READY=false` for previews. The site sends `noindex, nofollow`, disallows crawling in `robots.txt`, and emits an empty sitemap until you change it to `true` and rebuild. `noindex` is not access control; protect private previews with your hosting provider.
-5. Complete [`docs/OWNER-CHECKLIST.md`](docs/OWNER-CHECKLIST.md), replace concept assets, verify every policy, configure the firewall if using email, and test an owner-authorized inquiry. Then set `SITE_LAUNCH_READY=true` and redeploy.
+5. Complete [`docs/OWNER-CHECKLIST.md`](docs/OWNER-CHECKLIST.md), approve final photography/story, verify every policy, configure the firewall if using email, and test an owner-authorized inquiry. Then set `SITE_LAUNCH_READY=true` and redeploy.
 
 ### Node hosting
 
@@ -108,6 +108,6 @@ Use Node 24, run `npm ci && npm run build`, then `npm start` behind an HTTPS rev
 
 ## Research and asset provenance
 
-See [`docs/BRAND-RESEARCH.md`](docs/BRAND-RESEARCH.md). Instagram's public profile metadata is now accessible, but its product-photo endpoint requires login. No Instagram dessert photos have been downloaded or reused. The current lavender accents and illustrated mark follow the logo supplied by the user; the dessert photographs remain clearly labeled concepts until authorized originals are supplied.
+See [`docs/BRAND-RESEARCH.md`](docs/BRAND-RESEARCH.md) and [`docs/PHOTO-AUDIT.md`](docs/PHOTO-AUDIT.md). The 24 originals were supplied directly in GitHub; 18 have separate cropped, mildly sharpened WebP derivatives with precise, reproducible recipes. No Instagram scraping or generated food imagery is used. Lavender accents and the illustrated logo follow the actual packaging label.
 
-The three WebP images were generated for this project and are explicitly identified as illustrative concept photographs. Their pictured flavors, finishes, and presentation are not verified bakery offerings. All launch content and assets require owner review.
+Run `npm run photos:optimize` after editing `scripts/photo-recipes.mjs`. It preserves original numbered JPEGs, writes `public/images/optimized`, and generates the photo manifest with dimensions, checksums, alt text, and blur placeholders. No upscaling or generative processing is performed. See the audit for the two modest exposure corrections and image-size savings.

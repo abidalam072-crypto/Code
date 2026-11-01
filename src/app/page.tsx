@@ -1,13 +1,12 @@
-import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight, Heart, Sparkle } from "lucide-react";
+import { ArrowUpRight, Sparkle } from "lucide-react";
 import {
   ButtonLink,
   Eyebrow,
-  PhotoNote,
   ScrollHint,
   SectionHeading,
 } from "@/components/ui";
+import { BakeryImage } from "@/components/bakery-image";
 import { ProductGrid } from "@/components/products";
 import { Gallery } from "@/components/gallery";
 import { Reveal } from "@/components/reveal";
@@ -18,24 +17,23 @@ import {
   SweetCTA,
   WhyRah,
 } from "@/components/sections";
-import { site, products } from "@/lib/site";
+import { photography } from "@/lib/photography";
+import { site } from "@/lib/site";
 
 export default function Home() {
   return (
     <>
       <section className="hero container">
         <div className="hero-copy">
-          <Eyebrow>Little treats. Lovely moments.</Eyebrow>
+          <Eyebrow>A boutique bakery in Michigan</Eyebrow>
           <h1>
-            A little
-            <br />
-            sweetness.
-            <br />
+            A little <br />
+            sweetness. <br />
             <em>Just for you.</em>
           </h1>
           <p>
-            Cupcakes, brownies, and cookies for the moments that deserve
-            something lovely.
+            Delicate buttercream blooms. A little chocolate indulgence. Your
+            next favorite cookie. Welcome to the sweet world of Rah Bakes.
           </p>
           <div className="hero-actions">
             <ButtonLink href="/treats">Explore Our Treats</ButtonLink>
@@ -44,54 +42,60 @@ export default function Home() {
               <ArrowUpRight size={15} aria-hidden="true" />
             </Link>
           </div>
+          <div className="hero-location">
+            <span aria-hidden="true" />
+            {site.location}
+          </div>
           <ScrollHint />
-          <Sparkle
-            className="hero-sparkle"
-            size={45}
-            strokeWidth={1}
-            aria-hidden="true"
-          />
         </div>
         <div className="hero-art">
+          <div className="hero-photo-heading">
+            <span>THE RAH BAKES COLLECTION</span>
+            <Sparkle size={16} strokeWidth={1.2} aria-hidden="true" />
+          </div>
           <div className="hero-image">
-            <Image
-              src={products[0].image}
-              alt="Concept photograph of raspberry-pink cupcakes on a cream cake stand"
+            <BakeryImage
+              photo={photography.hero}
               fill
               loading="eager"
               fetchPriority="high"
-              sizes="(max-width: 760px) 95vw, 50vw"
+              sizes="(max-width: 760px) 92vw, (max-width: 1440px) 48vw, 660px"
               className="image-cover"
             />
-            <span className="photo-label">Concept photography</span>
           </div>
-          <div className="sweet-seal" aria-hidden="true">
-            <svg viewBox="0 0 120 120" aria-hidden="true">
-              <defs>
-                <path
-                  id="seal-circle"
-                  d="M60 60m-43 0a43 43 0 1 1 86 0a43 43 0 1 1-86 0"
-                />
-              </defs>
-              <text>
-                <textPath href="#seal-circle" startOffset="0%">
-                  SWEET LITTLE MOMENTS · RAH BAKES ·{" "}
-                </textPath>
-              </text>
-            </svg>
-            <Heart size={27} strokeWidth={1.25} aria-hidden="true" />
+          <Link href="/treats" className="hero-detail">
+            <div>
+              <BakeryImage
+                photo={photography.heroDetail}
+                fill
+                sizes="(max-width: 760px) 27vw, 160px"
+                className="image-cover"
+              />
+            </div>
+            <span>
+              A little chocolate, too.
+              <ArrowUpRight size={13} aria-hidden="true" />
+            </span>
+          </Link>
+          <div className="hero-caption">
+            <span>Buttercream, in bloom.</span>
+            <span>01 — THE FLORAL EDIT</span>
           </div>
-          <span className="hero-caption">Life’s a little sweeter here.</span>
+          <div className="hero-side-note" aria-hidden="true">
+            SWEET LITTLE MOMENTS, BEAUTIFULLY BAKED
+          </div>
         </div>
       </section>
       <div className="sweet-ribbon" aria-hidden="true">
         <div>
-          {Array.from({ length: 4 }, (_, i) => (
+          {Array.from({ length: 3 }, (_, i) => (
             <span key={i}>
-              A little joy
-              <Sparkle size={20} strokeWidth={1.2} />A little chocolate
-              <Sparkle size={20} strokeWidth={1.2} />A whole lot to love
-              <Sparkle size={20} strokeWidth={1.2} />
+              Buttercream blooms
+              <Sparkle size={17} strokeWidth={1.2} />
+              Chocolate daydreams
+              <Sparkle size={17} strokeWidth={1.2} />
+              Sweet little moments
+              <Sparkle size={17} strokeWidth={1.2} />
             </span>
           ))}
         </div>
@@ -101,33 +105,40 @@ export default function Home() {
         className="featured-treats container section-space"
       >
         <SectionHeading
-          eyebrow="Meet your next sweet obsession"
+          eyebrow="01 / The sweet collection"
           title={
             <>
-              The little things.
-              <br className="mobile-only" /> <em>The lovely things.</em>
+              Find your kind <br />
+              of <em>sweet.</em>
             </>
           }
-          description="A few favorites to fall in love with. Which one’s your kind of sweet?"
+          description="For celebrations, little gifts, and the lovely everyday. Explore the menu and tell us what catches your eye."
         >
           <ButtonLink href="/treats" variant="outline">
             Discover our treats
           </ButtonLink>
         </SectionHeading>
         <ProductGrid />
-        <PhotoNote />
+        <div className="collection-footnote">
+          <span>Photographed creations by Rah Bakes</span>
+          <Link href="/treats" className="text-link">
+            Bare cakes, too
+            <ArrowUpRight size={14} aria-hidden="true" />
+          </Link>
+        </div>
       </section>
       <WhyRah />
       <CustomOrderFeature />
       <section className="home-gallery container section-space">
         <SectionHeading
-          eyebrow="A feast for the eyes"
+          eyebrow="03 / The details make it"
           title={
             <>
-              Pretty sweet, <em>isn’t it?</em>
+              A little artistry. <br />
+              <em>A lot to love.</em>
             </>
           }
-          description="A little mood board of sweet possibilities."
+          description="Flowers you can eat. Chocolate worth a closer look. A few sweet moments from the Rah Bakes collection."
         >
           <Link href="/gallery" className="text-link">
             Explore the gallery
@@ -135,34 +146,34 @@ export default function Home() {
           </Link>
         </SectionHeading>
         <Gallery preview />
-        <PhotoNote />
       </section>
       <section className="home-about">
         <div className="container home-about-inner">
           <Reveal className="about-visual">
             <div className="about-image">
-              <Image
-                src={products[1].image}
-                alt="Illustrative chocolate brownies with a beautifully crackled top"
+              <BakeryImage
+                photo={photography.story}
                 fill
-                sizes="(max-width: 800px) 80vw, 35vw"
+                sizes="(max-width: 760px) 80vw, 38vw"
                 className="image-cover"
               />
             </div>
-            <span className="handwritten">a little love in every moment</span>
+            <span className="handwritten">A little something from Rah.</span>
           </Reveal>
           <Reveal className="home-about-copy">
-            <Eyebrow>A little hello from Rah Bakes</Eyebrow>
+            <Eyebrow>04 / Hello, we’re Rah Bakes</Eyebrow>
             <h2>
-              For the love
-              <br />
-              of <em>something sweet.</em>
+              Sweetness with <br />
+              <em>a personal touch.</em>
             </h2>
             <p>
-              From our corner of {site.location}, an invitation to slow down,
-              celebrate the little things, and find your next favorite treat.
+              Lavender ribbons, delicate flowers, a box of something lovely.
+              Welcome to our little corner of {site.location}.
             </p>
-            <p>Get to know Rah Bakes — and the sweet ideas behind it.</p>
+            <p>
+              Browse our creations, find a flavor you love, and talk directly
+              with Rah Bakes about your next sweet moment.
+            </p>
             <ButtonLink href="/about" variant="outline">
               Our little story
             </ButtonLink>

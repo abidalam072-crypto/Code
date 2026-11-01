@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { BakeryImage } from "@/components/bakery-image";
 import Link from "next/link";
 import {
   ArrowUpRight,
@@ -7,7 +7,8 @@ import {
   MessageCircle,
   Sparkle,
 } from "lucide-react";
-import { site, products, policies } from "@/lib/site";
+import { site, policies } from "@/lib/site";
+import { photography } from "@/lib/photography";
 import { ButtonLink, Eyebrow } from "@/components/ui";
 import { Reveal } from "@/components/reveal";
 
@@ -61,7 +62,7 @@ export function WhyRah() {
     <section className="why-section">
       <div className="container">
         <div className="why-intro">
-          <Eyebrow>The Rah Bakes feeling</Eyebrow>
+          <Eyebrow>A little thought in every detail</Eyebrow>
           <h2>
             More than a treat.
             <br />
@@ -88,23 +89,20 @@ export function CustomOrderFeature() {
   return (
     <section className="custom-feature container">
       <Reveal className="custom-photo">
-        <Image
-          src={products[2].image}
-          alt="Illustrative chocolate chunk cookies, a sweet idea for a celebration"
+        <BakeryImage
+          photo={photography.custom}
           fill
           sizes="(max-width: 800px) 90vw, 45vw"
           className="image-cover"
         />
-        <span className="photo-label">A little inspiration</span>
+        <span className="photo-label">Blush in bloom · Rah Bakes</span>
       </Reveal>
       <Reveal className="custom-copy">
-        <Eyebrow>For your kind of occasion</Eyebrow>
+        <Eyebrow>02 / For your kind of occasion</Eyebrow>
         <h2>
-          Your moment.
-          <br />
-          Your people.
-          <br />
-          <em>Your kind of sweet.</em>
+          Some moments <br />
+          deserve <em>flowers.</em> <br />
+          The edible kind.
         </h2>
         <p>
           A big celebration or a little surprise, it all begins with an idea.
@@ -135,7 +133,8 @@ export function InstagramSection() {
           Follow the <em>sweet side.</em>
         </h2>
         <p>
-          For the real creations, the latest updates, and a peek into Rah Bakes.
+          More buttercream blooms, chocolate moments, and the latest from Rah
+          Bakes.
         </p>
         <a
           href={site.instagram}
@@ -149,21 +148,19 @@ export function InstagramSection() {
         </a>
       </div>
       <div className="instagram-strip">
-        {[...products, products[0]].map((product, index) => (
+        {photography.instagram.map((photo) => (
           <a
             href={site.instagram}
-            key={`${product.id}-${index}`}
+            key={photo.image}
             target="_blank"
             rel="noopener noreferrer"
             aria-label={`Visit Rah Bakes on Instagram (opens in a new tab)`}
           >
-            <Image
-              src={product.image}
-              alt={product.alt}
+            <BakeryImage
+              photo={photo}
               fill
-              sizes="(max-width: 600px) 45vw, 23vw"
+              sizes="(max-width: 600px) 44vw, 23vw"
               className="image-cover"
-              style={{ objectPosition: index === 3 ? "50% 30%" : undefined }}
             />
             <span>
               <Instagram size={22} aria-hidden="true" />
@@ -172,7 +169,7 @@ export function InstagramSection() {
         ))}
       </div>
       <p className="photo-note centered">
-        Concept images shown · Visit Instagram for Rah Bakes’ actual work
+        A few moments from Rah Bakes · Follow along on Instagram
       </p>
     </section>
   );

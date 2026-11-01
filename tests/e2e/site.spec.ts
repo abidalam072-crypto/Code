@@ -1,5 +1,7 @@
 import { test, expect } from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
+import { photography } from "../../src/lib/photography";
+import { gallery } from "../../src/lib/site";
 
 test("homepage renders photography, working destinations, and no horizontal overflow", async ({
   page,
@@ -10,9 +12,7 @@ test("homepage renders photography, working destinations, and no horizontal over
   await expect(page.getByRole("heading", { level: 1 })).toContainText(
     "sweetness",
   );
-  const heroImage = page.getByAltText(
-    "Concept photograph of raspberry-pink cupcakes on a cream cake stand",
-  );
+  const heroImage = page.getByAltText(photography.hero.alt);
   await expect(heroImage).toBeVisible();
   await expect
     .poll(() =>
@@ -63,19 +63,51 @@ test("catalog filters categories and inquiry links carry the selected dessert", 
   await expect(page.getByLabel("Number of cakes *")).toBeVisible();
 });
 
+test("authentic photographs resolve and the image optimizer serves real product assets", async ({
+  request,
+}) => {
+  expect(new Set(gallery.map((photo) => photo.image)).size).toBe(18);
+  for (const photo of gallery) {
+    const response = await request.get(photo.image);
+    expect(response.status(), photo.image).toBe(200);
+    expect(response.headers()["content-type"]).toContain("image/webp");
+  }
+  for (const photo of [
+    photography.hero,
+    photography.brownies,
+    photography.cookies,
+  ]) {
+    const response = await request.get(
+      `/_next/image?url=${encodeURIComponent(photo.image)}&w=640&q=75`,
+      { headers: { Accept: "image/avif,image/webp" } },
+    );
+    expect(response.status(), photo.image).toBe(200);
+    expect(response.headers()["content-type"]).toMatch(/image\/(avif|webp)/);
+  }
+});
+
 test("gallery filtering, keyboard lightbox, and focus restoration work", async ({
   page,
 }) => {
   await page.goto("/gallery");
   await page.getByRole("button", { name: "Cookies", exact: true }).click();
-  await expect(page.locator(".gallery-tile")).toHaveCount(2);
+  await expect(page.locator(".gallery-tile")).toHaveCount(1);
+  await expect(page.locator(".gallery-tile img")).toHaveAttribute(
+    "alt",
+    photography.cookies.alt,
+  );
+  await page.getByRole("button", { name: "Cupcakes", exact: true }).click();
+  const cupcakePhotos = gallery.filter(
+    (photo) => photo.category === "cupcakes",
+  );
+  await expect(page.locator(".gallery-tile")).toHaveCount(cupcakePhotos.length);
   const trigger = page.getByRole("button", {
-    name: "Enlarge Golden little moments — concept photograph",
+    name: `Enlarge ${cupcakePhotos[0].title}`,
   });
   await trigger.click();
   const dialog = page.getByRole("dialog");
   await expect(dialog).toBeVisible();
-  await expect(dialog.getByRole("heading")).toHaveText("Golden little moments");
+  await expect(dialog.getByRole("heading")).toHaveText(cupcakePhotos[0].title);
   expect(
     (
       await new AxeBuilder({ page })
@@ -84,7 +116,7 @@ test("gallery filtering, keyboard lightbox, and focus restoration work", async (
     ).violations,
   ).toEqual([]);
   await page.keyboard.press("ArrowRight");
-  await expect(dialog.getByRole("heading")).toHaveText("A closer look");
+  await expect(dialog.getByRole("heading")).toHaveText(cupcakePhotos[1].title);
   await page.keyboard.press("Escape");
   await expect(dialog).not.toBeVisible();
   await expect(trigger).toBeFocused();
