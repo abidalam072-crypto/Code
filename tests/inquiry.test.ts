@@ -65,6 +65,12 @@ test("date validation uses Michigan time at a UTC day boundary", () => {
 test("a complete inquiry is accepted and whitespace is trimmed", () => {
   const parsed = inquirySchema.parse({ ...sample, name: "  Test Customer  " });
   assert.equal(parsed.name, "Test Customer");
+  const cake = inquirySchema.parse({
+    ...sample,
+    dessert: "bare-cake",
+    quantity: 1,
+  });
+  assert.match(serializeInquiry(cake), /Dessert: Bare Cake/);
 });
 
 test("invalid email, dates, quantities, consent, and honeypot are rejected", () => {

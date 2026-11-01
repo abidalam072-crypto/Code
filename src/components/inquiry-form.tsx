@@ -17,7 +17,7 @@ import {
   type InquiryErrors,
   type InquiryFields,
 } from "@/lib/inquiry";
-import { site } from "@/lib/site";
+import { site, menu } from "@/lib/site";
 
 type Props = { emailEnabled: boolean; initialDessert?: string; today: string };
 
@@ -31,7 +31,7 @@ export function InquiryForm({
     name: "",
     email: "",
     phone: "",
-    dessert: ["cupcakes", "brownies", "cookies", "mixed"].includes(
+    dessert: ["cupcakes", "brownies", "cookies", "bare-cake", "mixed"].includes(
       initialDessert,
     )
       ? (initialDessert as InquiryFields["dessert"])
@@ -264,12 +264,17 @@ export function InquiryForm({
             <option value="cupcakes">Cupcakes</option>
             <option value="brownies">Brownies</option>
             <option value="cookies">Cookies</option>
+            <option value="bare-cake">Bare Cake</option>
             <option value="mixed">A little mix</option>
           </select>
           {error("dessert")}
         </div>
         <div className="form-field">
-          <label htmlFor={`${id}-quantity`}>Quantity *</label>
+          <label htmlFor={`${id}-quantity`}>
+            {fields.dessert === "bare-cake"
+              ? "Number of cakes *"
+              : "Quantity *"}
+          </label>
           <input
             {...inputProps("quantity")}
             type="number"
@@ -283,6 +288,11 @@ export function InquiryForm({
             required
           />
           {error("quantity")}
+          <p className="field-hint">
+            {fields.dessert === "bare-cake"
+              ? "Choose 2, 3, or 4 layers and tell us in your design details. Fruit add-on: $8."
+              : `Menu treat quantities: ${menu.servingCounts.join(", ")}. Ask directly about other quantities.`}
+          </p>
         </div>
         <div className="form-field">
           <label htmlFor={`${id}-date`}>Requested date *</label>

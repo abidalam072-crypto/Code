@@ -58,7 +58,7 @@ export const metadata: Metadata = {
     description: site.tagline,
   },
   robots: { index: site.launchReady, follow: site.launchReady },
-  icons: { icon: "/icon.svg", apple: "/icon.svg" },
+  icons: { icon: "/icon.svg", apple: site.logo || "/icon.svg" },
 };
 
 export const viewport: Viewport = {

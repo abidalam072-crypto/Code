@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { ArrowUpRight, Instagram, Mail, MapPin } from "lucide-react";
+import { ArrowUpRight, Instagram, Mail, MapPin, Phone } from "lucide-react";
 import { site, products } from "@/lib/site";
 import { ButtonLink, Eyebrow, PageIntro } from "@/components/ui";
 import { FAQPreview } from "@/components/sections";
@@ -53,6 +53,19 @@ export default function ContactPage() {
               <span>
                 <strong>Email</strong>
                 <span>{site.email}</span>
+              </span>
+              <ArrowUpRight size={20} aria-hidden="true" />
+            </a>
+          )}
+          {site.phone && (
+            <a
+              href={`tel:${site.phone.replace(/[^\d+]/g, "")}`}
+              className="contact-method"
+            >
+              <Phone size={26} strokeWidth={1.3} aria-hidden="true" />
+              <span>
+                <strong>Call Rah Bakes</strong>
+                <span>{site.phone}</span>
               </span>
               <ArrowUpRight size={20} aria-hidden="true" />
             </a>

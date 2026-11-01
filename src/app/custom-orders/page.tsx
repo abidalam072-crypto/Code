@@ -11,7 +11,7 @@ export const dynamic = "force-dynamic";
 export const metadata: Metadata = {
   title: "Your Sweet Inquiry",
   description:
-    "Share your dessert idea with Rah Bakes. Ask about cupcakes, brownies, cookies, flavors, dates, quantities, and custom possibilities.",
+    "Share your dessert idea with Rah Bakes. Ask about cupcakes, brownies, cookies, bare cakes, flavors, dates, quantities, and custom possibilities.",
   alternates: { canonical: "/custom-orders" },
 };
 
@@ -46,8 +46,8 @@ export default async function OrdersPage({
             </h2>
             <p>
               This is an inquiry, not a confirmed order. Availability, custom
-              options, prices, pickup, and delivery need to be agreed directly
-              with Rah Bakes.
+              options, pickup, delivery, and the final quote need to be agreed
+              directly with Rah Bakes. Menu prices are available on Our Treats.
             </p>
             <ol>
               <li>

@@ -33,7 +33,7 @@ export const inquirySchema = z.object({
         (/^[+\d\s().-]+$/.test(value) && value.replace(/\D/g, "").length >= 7),
       "Please enter a valid phone number, or leave it blank.",
     ),
-  dessert: z.enum(["cupcakes", "brownies", "cookies", "mixed"], {
+  dessert: z.enum(["cupcakes", "brownies", "cookies", "bare-cake", "mixed"], {
     error: "Please choose a dessert type.",
   }),
   quantity: z
@@ -93,7 +93,7 @@ export function serializeInquiry(data: Inquiry) {
     `Name: ${data.name}`,
     `Email: ${data.email}`,
     ...(data.phone ? [`Phone: ${data.phone}`] : []),
-    `Dessert: ${data.dessert}`,
+    `Dessert: ${data.dessert === "bare-cake" ? "Bare Cake" : data.dessert}`,
     `Quantity: ${data.quantity}`,
     `Requested date: ${date}`,
     `Preferred flavor: ${data.flavor || "Open to suggestions"}`,

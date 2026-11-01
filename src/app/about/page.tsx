@@ -56,6 +56,16 @@ export default function AboutPage() {
         </div>
       </section>
       <section className="founder-note container">
+        {site.logo && (
+          <Image
+            src={site.logo}
+            alt="Rah Bakes illustrated logo: a baker in lavender holding a cupcake"
+            width={460}
+            height={460}
+            sizes="230px"
+            className="brand-story-logo"
+          />
+        )}
         <Eyebrow>The person behind the sweetness</Eyebrow>
         <h2>
           {site.founder ? (

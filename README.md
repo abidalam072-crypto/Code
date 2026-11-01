@@ -1,6 +1,6 @@
 # Rah Bakes
 
-A complete, responsive boutique bakery website built with **Next.js App Router, TypeScript, Tailwind CSS 4, Motion, Lucide, and Radix Dialog**. Cream, cocoa, blush, locally hosted editorial typography, and original concept photography give the site its visual identity.
+A complete, responsive boutique bakery website built with **Next.js App Router, TypeScript, Tailwind CSS 4, Motion, Lucide, and Radix Dialog**. Ivory, cocoa, and lavender, locally hosted editorial typography, the user-supplied illustrated logo refined for the website, and concept dessert photography give the site its visual identity.
 
 ## Local development
 
@@ -51,11 +51,11 @@ Stop a development server you started on port 3000 before running the production
 **Start in [`src/lib/site.ts`](src/lib/site.ts).** This is the central configuration for brand colors, optional logo, location, social links, product catalog, gallery photos, draft story, and ordering policies.
 
 - Change `site.colors` to update the theme: the layout exposes these values as CSS variables.
-- Add an authorized logo to `public/images/` and set `site.logo` to its public path. The current wordmark is a typographic concept, not a verified existing logo.
+- The refined user-supplied logo lives at `public/images/rahbakes-logo.png`, configured through `site.logo`. Its cupcake-holding hand has been corrected. The full seal is used in the header, mobile menu, footer, About page, touch icon, and social preview; responsive companion lettering keeps the name legible at small sizes. You can replace that asset or change `site.logo` to another local image path.
 - Replace images in `public/images/` and edit their paths and honest alt text in the product/gallery data.
-- Products intentionally have `price: null` and `verified: false`. A price displays only when a numeric price and `verified: true` are both set. Confirm currency, portion, and price basis with the owner before adding prices; update the card to show the basis where needed.
-- Product IDs correspond to the three current categories and inquiry types. If you add a new category, update `Category`, `categories`, the inquiry schema, form options, and tests together.
-- Replace the draft story and owner note, confirm each policy, and add verified contact details only when provided by the owner.
+- The user-supplied menu is transcribed in `menu` in `src/lib/site.ts`; see [`docs/MENU.md`](docs/MENU.md). Cupcake, brownie, and cookie prices are per item, with quantities of 4, 6, 12, or 24. Category price ranges are derived from these values. The Bare Cake panel lists three flavors, 2/3/4-layer prices, and an $8 fruit add-on. Update the centralized menu to change prices or flavors; photos remain illustrative.
+- `categories` covers the three photographed treat categories. `catalogCategories` also includes Bare Cake, which has a price panel without an invented product photo. The inquiry schema and form accept `bare-cake`; when adding another type, update the schema, form, and catalog together.
+- Replace the draft story and owner note, and confirm the remaining policies. The phone on the supplied menu is now shown on Contact and in the footer. Lead times, pickup, delivery, deposits, cancellation terms, and the founder's identity remain unconfirmed.
 - Gallery entries deliberately reuse three concept photos in different crops. Replace the collection with distinct authorized images of actual bakery products before launch.
 - Remove or revise concept-photo captions, the preview collection label, draft story notice, and global photography note **only after** the corresponding content has been replaced and approved.
 
@@ -108,6 +108,6 @@ Use Node 24, run `npm ci && npm run build`, then `npm start` behind an HTTPS rev
 
 ## Research and asset provenance
 
-See [`docs/BRAND-RESEARCH.md`](docs/BRAND-RESEARCH.md). Instagram could not be accessed because the execution environment denied the network connection. No Instagram images were scraped or reused. The design is an original interpretation of the requested aesthetic, not a claim to reproduce Rah Bakes’ verified visual identity.
+See [`docs/BRAND-RESEARCH.md`](docs/BRAND-RESEARCH.md). Instagram's public profile metadata is now accessible, but its product-photo endpoint requires login. No Instagram dessert photos have been downloaded or reused. The current lavender accents and illustrated mark follow the logo supplied by the user; the dessert photographs remain clearly labeled concepts until authorized originals are supplied.
 
 The three WebP images were generated for this project and are explicitly identified as illustrative concept photographs. Their pictured flavors, finishes, and presentation are not verified bakery offerings. All launch content and assets require owner review.

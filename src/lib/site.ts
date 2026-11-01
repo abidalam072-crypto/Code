@@ -8,19 +8,19 @@ export const site = {
   email: process.env.NEXT_PUBLIC_CONTACT_EMAIL || null,
   url: process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000",
   launchReady: process.env.SITE_LAUNCH_READY === "true",
-  logo: null as string | null,
+  logo: "/images/rahbakes-logo.png" as string | null,
   colors: {
     cream: "#faf7f2",
-    paper: "#f2ece3",
+    paper: "#f3edf5",
     cocoa: "#38251f",
     muted: "#6f5c52",
-    blush: "#eedbd6",
-    rose: "#8b4c43",
-    caramel: "#b98559",
+    blush: "#eee3f4",
+    rose: "#705080",
+    caramel: "#aa8559",
   },
-  // Never publish a phone, address, founder, hours, or price without owner approval.
+  // Phone and menu prices were supplied by the user in the bakery's menu.
   founder: null as string | null,
-  phone: null as string | null,
+  phone: "+1 (586) 224-4623" as string | null,
   address: null as string | null,
   story: {
     eyebrow: "A little introduction",
@@ -52,6 +52,43 @@ export const categories: { id: Category | "all"; label: string }[] = [
   { id: "cookies", label: "Cookies" },
 ];
 
+/** Transcribed from the menu supplied by the user; all prices are USD. */
+export const menu = {
+  servingCounts: [4, 6, 12, 24],
+  cupcakes: [
+    { name: "Classic Vanilla", price: 3 },
+    { name: "Decadent Chocolate", price: 3 },
+    { name: "Red Velvet Charm", price: 3 },
+    { name: "Citrusy Lemon", price: 4 },
+    { name: "Strawberry Bliss", price: 4 },
+  ],
+  brownies: [
+    { name: "Classic Brownies", price: 3 },
+    { name: "Chocolate Drizzle", price: 3 },
+    { name: "Premium with Chocolates", price: 4 },
+    { name: "Customized Brownies", price: 4 },
+  ],
+  cookies: [
+    { name: "Brown Butter Choco Chip", price: 2 },
+    { name: "Hershey’s Choco Chip", price: 2.5 },
+  ],
+  bareCake: {
+    name: "Bare Cake",
+    flavors: ["Sweet Vanilla", "Divine Chocolate", "Elegant Red Velvet"],
+    layers: [
+      { count: 2, price: 20 },
+      { count: 3, price: 30 },
+      { count: 4, price: 35 },
+    ],
+    fruitAddOn: 8,
+  },
+};
+
+export const catalogCategories = [
+  ...categories,
+  { id: "bare-cake", label: "Bare Cake" },
+];
+
 export type Product = {
   id: Category;
   name: string;
@@ -60,6 +97,7 @@ export type Product = {
   image: string;
   alt: string;
   price: number | null;
+  priceMax?: number;
   verified: boolean;
 };
 
@@ -69,33 +107,36 @@ export const products: Product[] = [
     name: "Cupcakes",
     note: "A little swirl of happiness",
     description:
-      "Pretty little treats for big feelings. Explore cupcake ideas and ask about available flavors and finishes.",
+      "From Classic Vanilla to Strawberry Bliss, a little swirl of sweetness for your kind of occasion.",
     image: "/images/cupcakes.webp",
     alt: "Illustrative pink buttercream cupcakes with raspberries on a cream ceramic stand",
-    price: null,
-    verified: false,
+    price: Math.min(...menu.cupcakes.map((item) => item.price)),
+    priceMax: Math.max(...menu.cupcakes.map((item) => item.price)),
+    verified: true,
   },
   {
     id: "brownies",
     name: "Brownies",
     note: "For the love of chocolate",
     description:
-      "A chocolate moment worth making time for. Ask about brownie options for your next sweet occasion.",
+      "Classic, chocolate-drizzled, topped with chocolates, or customized. Find your kind of chocolate moment.",
     image: "/images/brownies.webp",
     alt: "Illustrative stack of chocolate brownies with glossy tops on parchment",
-    price: null,
-    verified: false,
+    price: Math.min(...menu.brownies.map((item) => item.price)),
+    priceMax: Math.max(...menu.brownies.map((item) => item.price)),
+    verified: true,
   },
   {
     id: "cookies",
     name: "Cookies",
     note: "Your everyday kind of lovely",
     description:
-      "The kind of little pick-me-up that needs no occasion. Start a conversation about a cookie box of your own.",
+      "Brown Butter Choco Chip or Hershey’s Choco Chip. A little pick-me-up that needs no special occasion.",
     image: "/images/cookies.webp",
     alt: "Illustrative golden chocolate chunk cookies on warm ivory linen",
-    price: null,
-    verified: false,
+    price: Math.min(...menu.cookies.map((item) => item.price)),
+    priceMax: Math.max(...menu.cookies.map((item) => item.price)),
+    verified: true,
   },
 ];
 
@@ -197,10 +238,10 @@ export const policies = [
   {
     question: "Where can I find prices and minimum quantities?",
     answer:
-      "Prices, minimum quantities, deposits, and cancellation terms will be added after owner confirmation. Ask for a quote based on the treats and quantity you have in mind.",
-    confirmed: false,
+      "The menu lists cupcakes and brownies at $3–$4 each and cookies at $2–$2.50 each, with treat quantities of 4, 6, 12, or 24. Bare cakes are $20 for 2 layers, $30 for 3 layers, or $35 for 4 layers; fruits are an $8 add-on. Explore Our Treats for the full flavor list. Confirm availability and the final quote directly; deposits and cancellation terms still need confirmation.",
+    confirmed: true,
   },
 ];
 
 export const photographyNote =
-  "Illustrative concept photography, created for this website preview. Flavors, designs, and availability are subject to confirmation. These are not photos of Rah Bakes products.";
+  "Illustrative concept photography, created for this website preview. These are not photos of Rah Bakes products. Prices follow the Rah Bakes menu; final designs and availability are confirmed directly.";

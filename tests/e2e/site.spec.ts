@@ -55,6 +55,12 @@ test("catalog filters categories and inquiry links carry the selected dessert", 
     .getByRole("link", { name: "Make an inquiry", exact: true })
     .click();
   await expect(page.getByLabel("Dessert type *")).toHaveValue("brownies");
+  await page.goto("/treats");
+  await page.getByRole("button", { name: "Bare Cake", exact: true }).click();
+  await expect(page.locator(".bare-cake-menu")).toBeVisible();
+  await page.getByRole("link", { name: "Inquire about a bare cake" }).click();
+  await expect(page.getByLabel("Dessert type *")).toHaveValue("bare-cake");
+  await expect(page.getByLabel("Number of cakes *")).toBeVisible();
 });
 
 test("gallery filtering, keyboard lightbox, and focus restoration work", async ({

@@ -11,9 +11,32 @@ import { cn } from "@/lib/utils";
 
 export function Wordmark({ light = false }: { light?: boolean }) {
   return (
-    <Link href="/" className={cn("wordmark", light && "wordmark-light")}>
+    <Link
+      href="/"
+      className={cn(
+        "wordmark",
+        site.logo && "wordmark-custom",
+        light && "wordmark-light",
+      )}
+    >
       {site.logo ? (
-        <Image src={site.logo} alt="Rah Bakes" width={110} height={70} />
+        <>
+          <span className="brand-logo-frame">
+            <Image
+              src={site.logo}
+              alt=""
+              width={128}
+              height={128}
+              sizes="(max-width: 440px) 46px, 66px"
+              className="brand-logo"
+              loading={light ? "lazy" : "eager"}
+            />
+          </span>
+          <span className="brand-wordmark-copy">
+            <span className="brand-wordmark-name">Rah Bakes</span>{" "}
+            <span className="brand-wordmark-detail">Boutique bakery</span>
+          </span>
+        </>
       ) : (
         <>
           <span className="wordmark-rah">

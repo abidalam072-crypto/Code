@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowUpRight, Instagram, MapPin } from "lucide-react";
+import { ArrowUpRight, Instagram, MapPin, Phone } from "lucide-react";
 import { navigation, site, photographyNote } from "@/lib/site";
 import { Wordmark } from "@/components/header";
 
@@ -48,6 +48,12 @@ export function Footer() {
               <span className="sr-only"> (opens in a new tab)</span>
             </a>
             {site.email && <a href={`mailto:${site.email}`}>{site.email}</a>}
+            {site.phone && (
+              <a href={`tel:${site.phone.replace(/[^\d+]/g, "")}`}>
+                <Phone size={15} aria-hidden="true" />
+                {site.phone}
+              </a>
+            )}
           </div>
         </div>
         <div className="footer-bottom">

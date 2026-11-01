@@ -11,12 +11,12 @@
 
 :root {
   --cream: #faf7f2;
-  --paper: #f2ece3;
+  --paper: #f3edf5;
   --cocoa: #38251f;
   --muted: #6f5c52;
-  --blush: #eedbd6;
-  --rose: #8b4c43;
-  --caramel: #b98559;
+  --blush: #eee3f4;
+  --rose: #705080;
+  --caramel: #aa8559;
   --line: #ded5cb;
 }
 * {
@@ -375,6 +375,54 @@ main:focus {
   padding-left: 6px;
   margin-top: 6px;
 }
+.wordmark.wordmark-custom {
+  width: auto;
+  flex-direction: row;
+  gap: 10px;
+  padding-bottom: 0;
+}
+.brand-logo-frame {
+  display: grid;
+  place-items: center;
+  width: 66px;
+  height: 66px;
+  padding: 3px;
+  flex: none;
+  border-radius: 50%;
+  background: var(--cream);
+  box-shadow: 0 0 0 1px #70508015;
+}
+.brand-logo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.brand-wordmark-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+}
+.brand-wordmark-name {
+  font-family: var(--font-headingface), Georgia, serif;
+  font-size: 29px;
+  font-style: italic;
+  letter-spacing: -0.04em;
+  white-space: nowrap;
+}
+.brand-wordmark-detail {
+  font-size: 7px;
+  font-weight: 500;
+  letter-spacing: 0.19em;
+  line-height: 1.3;
+  text-transform: uppercase;
+}
+.brand-story-logo {
+  display: block;
+  width: 230px;
+  height: auto;
+  margin: 0 auto 28px;
+}
 .desktop-nav {
   display: flex;
   align-items: center;
@@ -633,6 +681,162 @@ main:focus {
   justify-content: space-between;
   align-items: center;
   margin-top: 14px;
+  flex-wrap: wrap;
+  gap: 10px 14px;
+}
+.product-price {
+  color: var(--rose);
+  font-size: 12px;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.product-price small {
+  font-size: 9px;
+  margin-left: 5px;
+  font-weight: 400;
+}
+.product-menu {
+  border-top: 1px solid var(--line);
+  margin-top: 20px;
+  padding-top: 15px;
+}
+.product-menu .menu-unit {
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--rose);
+  margin-bottom: 8px;
+}
+.product-menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.product-menu li {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 15px;
+  font-size: 12px;
+  padding-block: 8px;
+  border-bottom: 1px solid #ded5cb80;
+  line-height: 1.6;
+}
+.product-menu li > span:last-child {
+  flex: none;
+  font-variant-numeric: tabular-nums;
+}
+.bare-cake-menu {
+  display: grid;
+  grid-template-columns: 1fr 1.25fr;
+  gap: 65px;
+  background: var(--paper);
+  border: 1px solid #70508020;
+  border-radius: 7px;
+  padding: 42px;
+  margin-top: 45px;
+}
+.bare-cake-intro > svg {
+  color: var(--rose);
+  margin-bottom: 20px;
+}
+.bare-cake-intro h3 {
+  font-size: 49px;
+  margin-block: 19px;
+}
+.bare-cake-intro h3 em {
+  color: var(--rose);
+}
+.bare-cake-intro > p:not(.eyebrow) {
+  font-size: 12px;
+  line-height: 1.9;
+  max-width: 340px;
+}
+.bare-cake-intro .button {
+  margin-top: 23px;
+}
+.bare-cake-details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 35px;
+  align-content: center;
+}
+.bare-cake-details h4 {
+  font-family: var(--font-headingface), Georgia, serif;
+  font-weight: 400;
+  font-size: 29px;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+.cake-flavors {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.cake-flavors li {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  font-size: 12px;
+  margin-block: 12px;
+}
+.cake-flavors svg {
+  color: var(--rose);
+  flex: none;
+}
+.cake-layer-prices {
+  margin: 0;
+}
+.cake-layer-prices > div,
+.cake-fruit {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 15px;
+  padding-block: 9px;
+  border-bottom: 1px solid #70508025;
+  font-size: 12px;
+}
+.cake-layer-prices dd {
+  margin: 0;
+  font-variant-numeric: tabular-nums;
+}
+.cake-fruit {
+  color: var(--rose);
+  border-bottom: 0;
+  margin-top: 10px;
+}
+.cake-fruit strong {
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+}
+.menu-serving-note {
+  padding: 30px;
+  background: var(--paper);
+  border-left: 2px solid var(--rose);
+  margin-top: 35px;
+}
+.menu-serving-note h2 {
+  font-size: 33px;
+  margin-block: 15px;
+}
+.menu-serving-note > p:not(.eyebrow) {
+  font-size: 12px;
+  max-width: 760px;
+  line-height: 1.9;
+  margin-top: 8px;
+}
+.menu-serving-note strong {
+  font-weight: 500;
+  color: var(--cocoa);
+}
+.field-hint {
+  font-size: 10px;
+  color: var(--muted);
+  margin-top: 8px;
+  line-height: 1.7;
 }
 .product-bottom .text-link {
   font-size: 11px;
@@ -1630,6 +1834,12 @@ main:focus {
 .footer-brand .wordmark {
   margin-left: -8px;
 }
+.footer-brand .wordmark-custom {
+  margin-left: 0;
+}
+.wordmark-light .brand-wordmark-detail {
+  color: #e4d2c5;
+}
 .footer-brand > p {
   color: #f0ded1;
   font-family: var(--font-headingface), Georgia, serif;
@@ -1639,7 +1849,7 @@ main:focus {
   margin-top: 27px;
 }
 .footer-brand > p em {
-  color: #dbb7a4;
+  color: #d9c8e4;
 }
 .footer-location {
   display: inline-flex;
@@ -1798,6 +2008,15 @@ main:focus {
   }
 }
 @media (max-width: 900px) {
+  .bare-cake-menu {
+    grid-template-columns: 1fr;
+    gap: 33px;
+    padding: 30px;
+  }
+  .bare-cake-details {
+    grid-template-columns: 1fr 1fr;
+    gap: 35px;
+  }
   .desktop-nav {
     display: none;
   }
@@ -1984,6 +2203,51 @@ main:focus {
   }
 }
 @media (max-width: 760px) {
+  .product-card.product-card-detailed {
+    display: block;
+  }
+  .product-card-detailed .product-photo {
+    aspect-ratio: 1.3;
+  }
+  .product-card-detailed .product-copy {
+    padding-top: 21px;
+  }
+  .bare-cake-menu {
+    margin-top: 32px;
+    padding: 25px;
+  }
+  .bare-cake-intro h3 {
+    font-size: 43px;
+  }
+  .menu-serving-note {
+    padding: 24px;
+  }
+  .wordmark.wordmark-custom {
+    gap: 8px;
+  }
+  .brand-logo-frame {
+    width: 56px;
+    height: 56px;
+  }
+  .brand-wordmark-name {
+    font-size: 26px;
+  }
+  .brand-wordmark-detail {
+    font-size: 6.5px;
+    letter-spacing: 0.15em;
+  }
+  .footer-brand .wordmark-custom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .footer-brand .brand-logo-frame {
+    width: 76px;
+    height: 76px;
+  }
+  .footer-brand .brand-wordmark-name {
+    font-size: 28px;
+  }
   .container {
     width: calc(100% - 44px);
   }
@@ -2492,6 +2756,34 @@ main:focus {
   }
 }
 @media (max-width: 440px) {
+  .bare-cake-details {
+    grid-template-columns: 1fr;
+    gap: 26px;
+  }
+  .bare-cake-menu {
+    padding: 23px;
+  }
+  .bare-cake-intro h3 {
+    font-size: 40px;
+  }
+  .bare-cake-intro .button {
+    width: 100%;
+    padding-inline: 12px;
+    font-size: 11px;
+  }
+  .menu-serving-note h2 {
+    font-size: 30px;
+  }
+  .brand-logo-frame {
+    width: 46px;
+    height: 46px;
+  }
+  .brand-wordmark-name {
+    font-size: 24px;
+  }
+  .brand-wordmark-copy {
+    gap: 6px;
+  }
   .announcement {
     gap: 10px;
     font-size: 7px;
@@ -2638,6 +2930,29 @@ main:focus {
   .mobile-menu nav > a {
     padding-block: 13px;
     font-size: 30px;
+  }
+}
+@media (max-width: 360px) {
+  .wordmark.wordmark-custom {
+    gap: 7px;
+  }
+  .brand-logo-frame {
+    width: 42px;
+    height: 42px;
+  }
+  .brand-wordmark-name {
+    font-size: 21px;
+  }
+  .brand-wordmark-detail {
+    font-size: 6px;
+    letter-spacing: 0.1em;
+  }
+  .header-inner {
+    gap: 8px;
+  }
+  .header-order {
+    gap: 7px;
+    padding-inline: 9px;
   }
 }
 @media (prefers-reduced-motion: reduce) {

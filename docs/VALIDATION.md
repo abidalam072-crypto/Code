@@ -2,6 +2,12 @@
 
 Validated in the supplied Linux cloud environment with Node 24.19.0, Next.js 16.4.3, React 19.3.1, and Chromium 154.
 
+## Logo and menu update
+
+The corrected illustrated logo, lavender styling, supplied menu prices, telephone link, and Bare Cake inquiry path were validated with lint, type-check, the production build, 11 API tests, and 21 desktop/mobile browser checks; all passed. The catalog browser test includes filtering Bare Cake and carrying that selection into the inquiry form. The API test accepts the new type and confirms its readable inquiry message.
+
+The user also supplied `Archive.zip` with dessert photographs, but the attachment exceeds the 32 MiB executor transfer limit and could not be downloaded. Photo replacement is pending smaller uploads. The existing dessert pictures remain explicitly labeled illustrative concepts.
+
 | Check                           | Result                                                   |
 | ------------------------------- | -------------------------------------------------------- |
 | `npm ci --no-audit --no-fund`   | Clean lockfile installation passed                       |
@@ -30,15 +36,15 @@ Automated accessibility checks supplement human testing; they are not an accessi
 ## What is not yet verified
 
 - Real bakery photography, story, flavors, prices, contact information, service availability, and ordering policies need owner approval.
-- Instagram profile research was blocked by the environment's network policy. No profile content was scraped or reused.
+- Instagram's public profile metadata is now accessible; its photo endpoint returns 401 with a login requirement. A persistent browser certificate-store change was rejected by automatic approval review because it would broaden browser trust. No Instagram dessert photos have been downloaded.
 - Resend domain verification, actual credentials, recipient inbox, and real delivery are not verified. The default Instagram helper works without email credentials.
 - Public DNS, HTTPS hosting, deployed Core Web Vitals, and real-device behavior need validation after deployment.
 - Preview indexing remains disabled until the owner completes the launch checklist and enables `SITE_LAUNCH_READY`.
 - Cloud configuration publication and restoration in a new task are separate product actions; current-instance checks do not establish those outcomes.
 
-## Local mobile performance audit
+## Initial-version local mobile performance audit
 
-Lighthouse 13.6.0, default simulated mobile throttling, against the final local production build with preloaded local fonts and AVIF image delivery:
+Lighthouse 13.6.0, default simulated mobile throttling, against the earlier production build with preloaded local fonts and AVIF image delivery. These measurements predate the logo/menu update and are historical reference values; the current deployment needs its own performance measurement:
 
 | Category       | Score |
 | -------------- | ----- |

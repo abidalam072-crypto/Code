@@ -3,7 +3,8 @@
 ## Identity and assets
 
 - [ ] Approve the proposed wordmark, typography, palette, voice, and overall design, or provide the existing brand assets.
-- [ ] Supply an authorized logo in SVG/PNG, if available.
+- [x] Supply the original illustrated logo; refined transparent PNG and corrected hand are now included.
+- [ ] Review the refined logo and lavender website treatment on desktop and mobile.
 - [ ] Supply distinct, high-resolution photos of actual cupcakes, brownies, and cookies and confirm permission to publish them.
 - [ ] Replace all three generated concept photos and gallery crops. Update alt text accurately.
 - [ ] Approve a founder name, portrait, biography, story, and any personal introduction that should be public.
@@ -13,7 +14,8 @@
 ## Products and ordering
 
 - [ ] Verify offered categories, flavors, designs, sizes, and portions.
-- [ ] Provide current pricing, price basis (per item/box/dozen), minimum quantities, and taxes if prices should appear online.
+- [x] Supply menu prices and flavor names; the provided screenshot's per-item prices, treat quantities, cake layer prices, and fruit add-on are now displayed.
+- [ ] Confirm current availability and any taxes or charges beyond the supplied menu.
 - [ ] Confirm whether custom designs, mixed selections, or celebration orders are offered.
 - [ ] Confirm the actual inquiry/ordering channel and the Instagram profile.
 - [ ] Provide lead times, booking availability, deposits/payment terms, and cancellation/refund policies.
@@ -24,7 +26,8 @@
 
 ## Contact, privacy, and operations
 
-- [ ] Provide an owner-approved public email and optional phone, or approve Instagram-only contact.
+- [x] Supply a contact number on the menu; +1 (586) 224-4623 is now displayed.
+- [ ] Provide an owner-approved public email if one should be displayed.
 - [ ] If using email delivery, verify the Resend sender domain and recipient inbox. Set the three server-only environment variables securely.
 - [ ] Submit an owner-authorized real inquiry from the deployed site and verify receipt, reply-to, error behavior, and spam handling.
 - [ ] Confirm the fallback message can be copied and manually sent through Instagram on real phones.

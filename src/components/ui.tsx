@@ -102,7 +102,7 @@ export function PhotoNote({ className }: { className?: string }) {
   return (
     <p className={cn("photo-note", className)}>
       <Sparkle size={13} aria-hidden="true" />
-      Concept photography · Menu details to be confirmed
+      Concept photography · Please confirm availability directly
     </p>
   );
 }
